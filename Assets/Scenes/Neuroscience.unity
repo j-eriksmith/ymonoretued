@@ -153,7 +153,9 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 1157024337421467509}
   spawnScales:
-  - 10
+  - 5
+  intensityMidgame: 180
+  intensityScale: 0.025
 --- !u!4 &883882505
 Transform:
   m_ObjectHideFlags: 0
@@ -322,7 +324,7 @@ PrefabInstance:
     - target: {fileID: 8312867800045273350, guid: 006f929d5342847178d194aed5e88736,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 006f929d5342847178d194aed5e88736, type: 3}
@@ -338,3 +340,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1157024337421467508}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1157024337421467511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157024337421467509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c81fe6990be48d18cd8137b0b43737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
