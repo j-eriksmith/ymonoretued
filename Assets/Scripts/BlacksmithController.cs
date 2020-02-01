@@ -23,9 +23,6 @@ public class BlacksmithController : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-
         // Debug.Log(horizontal + ", " + vertical);
 
         // if(Mathf.Abs(horizontal) > deadzone){
@@ -37,14 +34,6 @@ public class BlacksmithController : MonoBehaviour{
         //     float transform = vertical * speed * Time.deltaTime;
         //     gameObject.transform.position += new Vector3(0, transform, 0);
         // }
-
-        if(nearbyStation){
-            if(Input.GetButtonDown("A")){
-                // Debug.Log(nearbyStation.GetComponent<Transform>().position);
-                nearbyStationQTE.Initialize();
-                inQTE = true;
-            }
-        }
 
         if(inQTE){
             if(Input.GetButtonDown("A")){
@@ -60,31 +49,46 @@ public class BlacksmithController : MonoBehaviour{
                 nearbyStationQTE.ReceiveInput("Y");
             }
         }
+        else{
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
+
+            if(nearbyStation){
+                if(Input.GetButtonDown("A")){
+                    // Debug.Log(nearbyStation.GetComponent<Transform>().position);
+                    Debug.Log("Initialize");
+                    nearbyStationQTE.Initialize();
+                    inQTE = true;
+                }
+            }
+        }
     }
 
     void FixedUpdate(){
-        if(Mathf.Abs(horizontal) > deadzone){
-            float transform = horizontal * speed * Time.fixedDeltaTime;
-            rb2D.position += new Vector2(transform, 0);
-        }
+        if(!inQTE){
+            if(Mathf.Abs(horizontal) > deadzone){
+                float transform = horizontal * speed * Time.fixedDeltaTime;
+                rb2D.position += new Vector2(transform, 0);
+            }
 
-        if(Mathf.Abs(vertical) > deadzone){
-            float transform = vertical * speed * Time.fixedDeltaTime;
-            rb2D.position += new Vector2(0, transform);
+            if(Mathf.Abs(vertical) > deadzone){
+                float transform = vertical * speed * Time.fixedDeltaTime;
+                rb2D.position += new Vector2(0, transform);
+            }
         }
     }
 
-    void updateNearbyStation(GameObject g){
+    public void updateNearbyStation(GameObject g){
         nearbyStation = g;
         nearbyStationQTE = g.GetComponent<BaseQTE>();
     }
     
-    void resetNearbyStation(){
+    public void resetNearbyStation(){
         nearbyStation = null;
         nearbyStationQTE = null;
     }
 
-    void qteSucceed(){
+    public void qteSucceed(){
         inQTE = false;
     }
 }

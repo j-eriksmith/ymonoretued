@@ -14,13 +14,14 @@ public class StationController : MonoBehaviour
         if(collider.gameObject.tag == "Player"){
             Debug.Log("PLAYER ENTER");
             collider.gameObject.SendMessage("updateNearbyStation", gameObject);
+            gameObject.GetComponent<BaseQTE>().activatingPlayer = collider.gameObject;
         }
     }
 
     void OnTriggerExit2D(Collider2D collider){
         if(collider.gameObject.tag == "Player"){
             Debug.Log("PLAYER EXIT");
-            collider.gameObject.SendMessage("pdateNearbyStation");
+            collider.gameObject.SendMessage("resetNearbyStation");
         }
     }
 }
