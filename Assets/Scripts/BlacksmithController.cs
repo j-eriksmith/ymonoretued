@@ -36,7 +36,7 @@ public class BlacksmithController : MonoBehaviour{
         // }
 
         if(nearbyStation){
-            if(Input.GetButtonDown("Fire1")){
+            if(Input.GetButtonDown("A")){
                 Debug.Log(nearbyStation.GetComponent<Transform>().position);
             }
         }
