@@ -20,7 +20,7 @@ public class StationController : MonoBehaviour
     void OnTriggerExit2D(Collider2D collider){
         if(collider.gameObject.tag == "Player"){
             Debug.Log("PLAYER EXIT");
-            collider.gameObject.SendMessage("resetNearbyStation");
+            collider.gameObject.SendMessage("pdateNearbyStation");
         }
     }
 }
