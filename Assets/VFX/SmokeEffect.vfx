@@ -129,14 +129,13 @@ VisualEffectResource:
       stripData);\r\n\t\t// TODO Change seed to be sure we're deterministic on random
       with strip\r\n#endif\r\n        \r\n        {\n            SetAttribute_E6295C0(
       /*inout */attributes.velocity,  /*inout */attributes.seed, float3(-0.100000001,
-      0.800000012, -0.333000004), float3(0.100000001, 1, 0.333000004));\n       
-      }\n        {\n            SetAttribute_F01429A3( /*inout */attributes.lifetime, 
-      /*inout */attributes.seed, (float)1, (float)2);\n        }\n        {\n           
-      SetAttribute_48A7BD6E( /*inout */attributes.angleZ,  /*inout */attributes.seed,
-      (float)0, (float)360);\n        }\n        \n\r\n\t\t\r\n#if VFX_USE_ALIVE_CURRENT\r\n       
-      if (attributes.alive)\r\n#endif       \r\n        {\r\n#if USE_DEAD_LIST\r\n\t       
-      uint deadIndex = deadListIn.DecrementCounter();\r\n            uint index =
-      deadListIn[deadIndex];\r\n#else\r\n            uint index = particleIndex;\r\n#endif\r\n           
+      0.800000012, 0), float3(0.100000001, 1, 0));\n        }\n        {\n           
+      SetAttribute_F01429A3( /*inout */attributes.lifetime,  /*inout */attributes.seed,
+      (float)1, (float)2);\n        }\n        {\n            SetAttribute_48A7BD6E(
+      /*inout */attributes.angleZ,  /*inout */attributes.seed, (float)0, (float)360);\n       
+      }\n        \n\r\n\t\t\r\n#if VFX_USE_ALIVE_CURRENT\r\n        if (attributes.alive)\r\n#endif      
+      \r\n        {\r\n#if USE_DEAD_LIST\r\n\t        uint deadIndex = deadListIn.DecrementCounter();\r\n           
+      uint index = deadListIn[deadIndex];\r\n#else\r\n            uint index = particleIndex;\r\n#endif\r\n           
       attributeBuffer.Store3((index * 0x4 + 0x0) << 2,asuint(attributes.velocity));\n           
       attributeBuffer.Store((index * 0x1 + 0x200) << 2,asuint(attributes.lifetime));\n           
       attributeBuffer.Store((index * 0x1 + 0x280) << 2,asuint(attributes.angleZ));\n           
@@ -716,9 +715,9 @@ VisualEffectResource:
         - m_ExpressionIndex: 8
           m_Value: {x: -0.2, y: 0.5, z: 0}
         - m_ExpressionIndex: 15
-          m_Value: {x: 0.1, y: 1, z: 0.333}
+          m_Value: {x: 0.1, y: 1, z: 0}
         - m_ExpressionIndex: 16
-          m_Value: {x: -0.1, y: 0.8, z: -0.333}
+          m_Value: {x: -0.1, y: 0.8, z: 0}
         - m_ExpressionIndex: 17
           m_Value: {x: 2, y: 3, z: 2}
         - m_ExpressionIndex: 18
@@ -1590,7 +1589,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-0.10000000149011612,"y":0.800000011920929,"z":-0.3330000042915344}}'
+      m_SerializableObject: '{"vector":{"x":-0.10000000149011612,"y":0.800000011920929,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: A
@@ -1772,7 +1771,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.10000000149011612,"y":1.0,"z":0.3330000042915344}}'
+      m_SerializableObject: '{"vector":{"x":0.10000000149011612,"y":1.0,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: B
