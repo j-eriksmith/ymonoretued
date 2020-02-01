@@ -9,6 +9,7 @@ public class SequenceQTE : BaseQTE
 
     private string[] validEvents = {"A", "B", "X", "Y"};
     private Queue<string> inputSequence = new Queue<string>();
+    private SpriteRenderer promptRenderer;
 
     public override void Initialize()
     {
@@ -19,31 +20,58 @@ public class SequenceQTE : BaseQTE
         {
             string eventToEnqueue = validEvents[Mathf.FloorToInt(Random.Range(0, validEvents.Length))];
             inputSequence.Enqueue(eventToEnqueue);            
-            Debug.Log(eventToEnqueue);
         }
+
+        // Create gameobject where the prompt holder will live
+        GameObject promptHolder = new GameObject("QTE Prompt Holder");
+        promptHolder.transform.position = blacksmithCenter.position;
+        promptRenderer = promptHolder.AddComponent<SpriteRenderer>();        
+
+        // Show the first button prompt
+        DisplayButtonPrompt(inputSequence.Peek());
     }
 
     public override void ReceiveInput(string buttonPressed)
     {
-        Debug.Log(buttonPressed);
         base.ReceiveInput(buttonPressed);
 
         if (buttonPressed == inputSequence.Peek())
         {
             inputSequence.Dequeue();
-            // TODO(smith): Hide the current button sprite
 
             if (inputSequence.Count == 0)
             {
                 // TODO(smith): Call Player.QTESucceed()
                 Debug.Log("Finished QTE!");
+                Destroy(promptRenderer.gameObject);
+            }
+            else 
+            {
+                DisplayButtonPrompt(inputSequence.Peek());
             }
         }
         // No else case for now ... gotta finish this game
     }
 
-    protected override void DisplayGraphics()
+    void DisplayButtonPrompt(string buttonToDisplay)
     {
-        
+        switch(buttonToDisplay)
+        {
+            case "A":
+                promptRenderer.sprite = buttonSprites[0];
+                break;
+            case "B":
+                promptRenderer.sprite = buttonSprites[1];
+                break;
+            case "X":
+                promptRenderer.sprite = buttonSprites[2];
+                break;
+            case "Y":
+                promptRenderer.sprite = buttonSprites[3];
+                break;
+            default:
+                Debug.Log("What the hell is button " + buttonToDisplay);
+                break;
+        }
     }
 }

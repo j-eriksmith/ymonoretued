@@ -4,8 +4,9 @@ using UnityEngine;
 
 public abstract class BaseQTE : MonoBehaviour
 {
-    protected Transform blacksmithCenter;
-    protected Transform blacksmithLeft;
+    public Sprite[] buttonSprites;
+
+    public Transform blacksmithCenter;
 
     protected float timeOfInitialization;
     protected float timeSinceInitialization;
@@ -39,7 +40,7 @@ public abstract class BaseQTE : MonoBehaviour
     public virtual void Initialize()
     {
         timeOfInitialization = Time.time;
-        DisplayGraphics();
+        DisplayInitialGraphics();
     }
 
     public virtual void ReceiveInput(string buttonPressed)
@@ -47,5 +48,5 @@ public abstract class BaseQTE : MonoBehaviour
         timeSinceInitialization = Time.time - timeOfInitialization;
     }
 
-    protected abstract void DisplayGraphics();
+    protected virtual void DisplayInitialGraphics() {}
 }
