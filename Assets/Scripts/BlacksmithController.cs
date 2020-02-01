@@ -13,9 +13,12 @@ public class BlacksmithController : MonoBehaviour{
     private GameObject nearbyStation;
     private BaseQTE nearbyStationQTE;
 
+    private bool inQTE;
+
     // Start is called before the first frame update
     void Start(){
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        inQTE = false;
     }
 
     // Update is called once per frame
@@ -37,7 +40,24 @@ public class BlacksmithController : MonoBehaviour{
 
         if(nearbyStation){
             if(Input.GetButtonDown("A")){
-                Debug.Log(nearbyStation.GetComponent<Transform>().position);
+                // Debug.Log(nearbyStation.GetComponent<Transform>().position);
+                nearbyStationQTE.Initialize();
+                inQTE = true;
+            }
+        }
+
+        if(inQTE){
+            if(Input.GetButtonDown("A")){
+                nearbyStationQTE.ReceiveInput("A");
+            }
+            if(Input.GetButtonDown("B")){
+                nearbyStationQTE.ReceiveInput("B");
+            }
+            if(Input.GetButtonDown("X")){
+                nearbyStationQTE.ReceiveInput("X");
+            }
+            if(Input.GetButtonDown("Y")){
+                nearbyStationQTE.ReceiveInput("Y");
             }
         }
     }
@@ -62,5 +82,9 @@ public class BlacksmithController : MonoBehaviour{
     void resetNearbyStation(){
         nearbyStation = null;
         nearbyStationQTE = null;
+    }
+
+    void qteSucceed(){
+        inQTE = false;
     }
 }
