@@ -28,9 +28,6 @@ public class BlacksmithController : MonoBehaviour{
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         //TODO: change back to State.NOT_CARRYING
         state = State.CARRYING;
-        foreach (string s in Input.GetJoystickNames())
-            Debug.Log(s);
-        Debug.Log(Input.GetJoystickNames().Length);
     }
 
     // Update is called once per frame
