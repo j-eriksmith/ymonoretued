@@ -150,13 +150,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4928e688bdf499b45aab5006f6e310b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveSpeed: 0.008
-  activeSpeed: 12
-  minPosition: -4.5
-  maxPosition: 4.5
-  markerPrefab: {fileID: 9039708271541234843, guid: 0be14958301263949871dac8fa5fcb20,
+  passiveSpeed: 0.002
+  activeSpeed: 0.25
+  minPosition: -5
+  maxPosition: 5
+  markerPrefab: {fileID: 1630574298681041652, guid: 346cacb596e98bc4a8db521f4f0a967c,
     type: 3}
-  playerPrefab: {fileID: 1630574298681041652, guid: 346cacb596e98bc4a8db521f4f0a967c,
+  playerPrefab: {fileID: 9039708271541234843, guid: 0be14958301263949871dac8fa5fcb20,
     type: 3}
 --- !u!4 &707955398
 Transform:
@@ -364,7 +364,7 @@ Transform:
   m_GameObject: {fileID: 1905396106}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalScale: {x: 15, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 707955398}
   m_RootOrder: 0
