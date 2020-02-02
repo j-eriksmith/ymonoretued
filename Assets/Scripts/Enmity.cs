@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class Enmity : MonoBehaviour
 {
+    protected Rigidbody2D rb;
+    public GameObject hero;
+
     public float cooldownTime;
     public float range;
 
@@ -12,6 +15,8 @@ public abstract class Enmity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        hero = GameObject.FindWithTag("Hero");
         Debug.Log("Enemy spawned!");
         cooldown = cooldownTime;
     }
@@ -27,13 +32,14 @@ public abstract class Enmity : MonoBehaviour
 
     protected virtual void Orient()
     {
-
+        Vector3 delta = hero.transform.position - transform.position;
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(delta.y, delta.x));
     }
 
     protected virtual bool InRange()
     {
-        // distance between me and player is less than `range`
-        return false;
+        Vector3 delta = hero.transform.position - transform.position;
+        return delta.magnitude < range;
     }
 
     // should call InRange to determine how to move (speed up/slow down/hold)
