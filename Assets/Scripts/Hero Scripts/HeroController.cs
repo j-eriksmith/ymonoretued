@@ -20,8 +20,13 @@ public class HeroController : MonoBehaviour
     private float vertical;
     private float curRampTime;
     private bool healthImmune; // Immune when blocking or just after getting hit
+    private CircleCollider2D hitbox;
 
     private bool moving, hasInputThisFrame;
+
+    public float invulDuration = 1;
+    float invulCooldown = 0;
+    bool invulnerable = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +38,7 @@ public class HeroController : MonoBehaviour
         moving = false;
         hasInputThisFrame = false;
         healthImmune = false;
+        hitbox = GetComponent<Transform>().Find("Hitbox").GetComponent<CircleCollider2D>();
     }
 
     void Update()
@@ -81,6 +87,23 @@ public class HeroController : MonoBehaviour
         }
 
         // Pullback();
+
+        // Triggers against enemies, hero takes damage
+        if(!invulnerable && hitbox.IsTouchingLayers(LayerMask.GetMask("Enemy"))){
+            DamagePlayer(1);
+            GetComponent<SpriteRenderer>().color = Color.red;
+            invulCooldown = invulDuration;
+            invulnerable = true;
+        }
+
+        if(invulnerable){
+            if(invulCooldown <= 0){
+                invulnerable = false;
+                GetComponent<SpriteRenderer>().color = Color.white;
+            }
+
+            invulCooldown -= Time.deltaTime;
+        }
     }
 
     protected virtual void Pullback()
@@ -94,6 +117,7 @@ public class HeroController : MonoBehaviour
     public void DamagePlayer(int dmg)
     {
         health -= dmg;
+        print("You took damage, your life is now " + health);
         if (health <= 0) Die();
     }
 
@@ -104,6 +128,6 @@ public class HeroController : MonoBehaviour
 
     private void Die()
     {
-
+        print("You are now dead");
     }
 }

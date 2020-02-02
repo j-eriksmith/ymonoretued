@@ -36,6 +36,7 @@ Transform:
   m_Children:
   - {fileID: 6066718449884252315}
   - {fileID: 807325071378648587}
+  - {fileID: 87045456179841535}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -129,6 +130,7 @@ MonoBehaviour:
   walkAnimBaseSpeed: 1.7
   walkAnimHighSpeed: 6.3
   walkAnimRampTime: 0.4
+  invulDuration: 1.5
 --- !u!114 &3464968540916138967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815112b7365b28b4f80c294cdc4f7638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePerSwing: 0
+  damagePerHit: 0
+  damagePerBlock: 0
   maxSwordDurability: 200
   maxShieldDurability: 100
 --- !u!114 &2562374156143782277
@@ -192,7 +197,54 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.32
+  m_Radius: 0.3
+--- !u!1 &8088315913867554938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87045456179841535}
+  - component: {fileID: 7676404294067447766}
+  m_Layer: 9
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &87045456179841535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088315913867554938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7636934097807798029}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7676404294067447766
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088315913867554938}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &9177559940353180577
 GameObject:
   m_ObjectHideFlags: 0
