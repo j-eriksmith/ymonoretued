@@ -73,6 +73,10 @@ public class HeroController : MonoBehaviour
             Vector2 ball = new Vector2(-rb.velocity.y, rb.velocity.x);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(0, 0, 1f), ball), 0.1f);
         }
+        else
+        {
+            rb.angularVelocity = 0f;
+        }
 
         // Pullback();
     }

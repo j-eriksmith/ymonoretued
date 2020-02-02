@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 110727612}
   - component: {fileID: 110727611}
   - component: {fileID: 110727610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 'DownBound '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 1142706211}
   - component: {fileID: 1142706210}
   - component: {fileID: 1142706209}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 1266731796}
   - component: {fileID: 1266731795}
   - component: {fileID: 1266731797}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 1769425569}
   - component: {fileID: 1769425568}
   - component: {fileID: 1769425567}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,21 +1003,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1219178271195427563, guid: efe04c6256524284fa740a793c4aba85,
-        type: 3}
-      propertyPath: speed
-      value: 4.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464968540916138967, guid: efe04c6256524284fa740a793c4aba85,
-        type: 3}
-      propertyPath: maxSwordDurability
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464968540916138967, guid: efe04c6256524284fa740a793c4aba85,
-        type: 3}
-      propertyPath: maxShieldDurability
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 7636934097807798022, guid: efe04c6256524284fa740a793c4aba85,
         type: 3}
       propertyPath: m_Name
