@@ -32,6 +32,7 @@ public class HeroAttackDefend : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Z) && itemDurability.canUseSword() && !attacking)
         {
             attacking = true;
+            itemDurability.damageSword(itemDurability.damagePerSwing);
             StartCoroutine(SwordAttack());
         }
     }
