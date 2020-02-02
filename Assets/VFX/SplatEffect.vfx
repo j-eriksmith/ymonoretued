@@ -647,9 +647,15 @@ VisualEffectResource:
         data[0]: -1
         data[1]: -1
         data[2]: -1
+        data[3]: 2
+      - op: 1
+        valueIndex: 37
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
         data[3]: 7
       - op: 9
-        valueIndex: 36
+        valueIndex: 38
         data[0]: -1
         data[1]: -1
         data[2]: -1
@@ -672,6 +678,8 @@ VisualEffectResource:
         m_Array:
         - m_ExpressionIndex: 12
           m_Value: {x: 1, y: 1}
+        - m_ExpressionIndex: 20
+          m_Value: {x: 0, y: 0}
       m_Vector3f:
         m_Array:
         - m_ExpressionIndex: 18
@@ -726,8 +734,8 @@ VisualEffectResource:
             m_NumAlphaKeys: 3
       m_NamedObject:
         m_Array:
-        - m_ExpressionIndex: 20
-          m_Value: {fileID: 2800000, guid: 8a572d55be6f64d4eab709ee9d80f6fe, type: 3}
+        - m_ExpressionIndex: 21
+          m_Value: {fileID: 2800000, guid: f58b9b1cf5dda4848bf86b97522041c5, type: 3}
       m_Bool:
         m_Array: []
     m_ExposedExpressions:
@@ -867,7 +875,7 @@ VisualEffectResource:
       - nameId: Count
         index: 12
       - nameId: Delay
-        index: 12
+        index: 20
       params: []
       processor: {fileID: 0}
       shaderSourceIndex: -1
@@ -945,7 +953,7 @@ VisualEffectResource:
       temporaryBuffers: []
       values:
       - nameId: localToWorld
-        index: 21
+        index: 22
       params: []
       processor: {fileID: 0}
       shaderSourceIndex: 3
@@ -966,7 +974,7 @@ VisualEffectResource:
       - nameId: Color_c
         index: 10
       - nameId: mainTexture
-        index: 20
+        index: 21
       params:
       - nameId: sortPriority
         index: 0
@@ -1500,7 +1508,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"8a572d55be6f64d4eab709ee9d80f6fe","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"f58b9b1cf5dda4848bf86b97522041c5","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: mainTexture
@@ -1633,7 +1641,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 0
     m_Space: 2147483647
   m_Property:
     name: Delay
