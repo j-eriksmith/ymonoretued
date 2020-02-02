@@ -22,17 +22,22 @@ public class PauseMenuManager : MonoBehaviour
     public Text swordDur;
     public Text health;
 
+    private ItemDurability itemDur;
+    private HeroController hero;
+
     // Start is called before the first frame update
     void Start()
     {
         CloseMenus();
         // AdjustTime(1);
+        itemDur = FindObjectOfType<ItemDurability>();
+        hero = FindObjectOfType<HeroController>();
     }
 
     void Update()
     {
-        // swordDur.text = 
-        // health.text = 
+        swordDur.text = itemDur.getSwordDurability().ToString() + " %";
+        // health.text = hero.GetHealth().ToString();
     }
 
 
