@@ -12,6 +12,8 @@ public class BlacksmithController : MonoBehaviour{
     public float deadzone = 0.1f;
     public float speed = 100;
 
+    public string blacksmithString;
+
     private Rigidbody2D rb2D;
     private float horizontal;
     private float vertical;
@@ -43,25 +45,30 @@ public class BlacksmithController : MonoBehaviour{
         // }
 
         if(state == State.IN_QTE){
-            if(Input.GetButtonDown("A")){
+            if(Input.GetButtonDown(blacksmithString + " A")){
                 nearbyStationQTE.ReceiveInput("A");
             }
-            if(Input.GetButtonDown("B")){
+            if(Input.GetButtonDown(blacksmithString + " B")){
                 nearbyStationQTE.ReceiveInput("B");
             }
-            if(Input.GetButtonDown("X")){
+            if(Input.GetButtonDown(blacksmithString + " X")){
                 nearbyStationQTE.ReceiveInput("X");
             }
-            if(Input.GetButtonDown("Y")){
+            if(Input.GetButtonDown(blacksmithString + " Y")){
                 nearbyStationQTE.ReceiveInput("Y");
             }
         }
         else{
-            horizontal = Input.GetAxis("Horizontal");
-            vertical = Input.GetAxis("Vertical");
+            horizontal = Input.GetAxis(blacksmithString + " Horizontal");
+            vertical = -1 * Input.GetAxis(blacksmithString + " Vertical");
+            //Debug.Log(horizontal);
+            //Debug.Log(vertical);
+
+            //Debug.Log(Input.GetJoystickNames());
+            //Debug.Log(Input.GetJoystickNames());
 
             if(nearbyStation && state == State.CARRYING){
-                if(Input.GetButtonDown("A")){
+                if(Input.GetButtonDown(blacksmithString + " A")){
                     // Debug.Log(nearbyStation.GetComponent<Transform>().position);
                     Debug.Log("Initialize");
                     nearbyStationQTE.Initialize();

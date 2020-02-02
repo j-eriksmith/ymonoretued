@@ -36,6 +36,7 @@ public class MashQTE : BaseQTE{
         if(buttonPressed == mashButton){
             --pressesRemaining;
             Debug.Log(pressesRemaining + " presses remaining");
+            qteAudioSource.PlayOneShot(eventWinSound);
         }
 
         if(pressesRemaining == 0){

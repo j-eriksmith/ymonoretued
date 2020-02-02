@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public abstract class Enmity : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public abstract class Enmity : MonoBehaviour
     protected int health;
 
     private bool blockMovement; // Also used for enemy I-frames
+    private VisualEffect splat;
 
     // Start is called before the first frame update
     protected void Start()
@@ -26,6 +28,9 @@ public abstract class Enmity : MonoBehaviour
         Debug.Log("Enemy spawned!");
         cooldown = cooldownTime;
         blockMovement = false;
+
+        splat = GetComponentInChildren<VisualEffect>();
+        splat.Stop();
     }
 
     // Update is called once per frame
@@ -80,13 +85,16 @@ public abstract class Enmity : MonoBehaviour
 
         rb.velocity = delta;
 
-        if (health <= 0) Die();
+        if (health <= 0) StartCoroutine(Die());
     }
 
-    protected void Die()
+    protected IEnumerator Die()
     {
         GetComponent<SpriteRenderer>().color = new Vector4(1f, 0f, 0f, 1f);
-        Destroy(gameObject, 0.5f);
+        splat.Play();
+        Destroy(gameObject, 5f);
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     IEnumerator blockMovementForDuration(float duration)
