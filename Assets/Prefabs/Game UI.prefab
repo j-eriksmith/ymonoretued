@@ -1459,6 +1459,7 @@ MonoBehaviour:
   masterPauseGameObject: {fileID: 7051779458808502551}
   restartButton: {fileID: 2114113652}
   endMenu: {fileID: 2127617361}
+  gameUI: {fileID: 2183361997699381381}
   swordDur: {fileID: 2177700024813769406}
   health: {fileID: 1710470816762248758}
 --- !u!1 &7051779458325963280
