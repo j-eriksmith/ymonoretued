@@ -15,6 +15,9 @@ public class MeleeEnmity : Enmity
 
     protected override void Attack()
     {
-
+        if (!InRange() || cooldown > 0.0f)
+            return;
+        Debug.Log("Attack!");
+        cooldown = cooldownTime;
     }
 }
