@@ -121,6 +121,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &115723712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7636934097807798022, guid: efe04c6256524284fa740a793c4aba85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1038546815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &115723713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115723712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb5e80b510f84d40bd98ad1baa5ac7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1038546815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,7 +304,7 @@ GameObject:
   - component: {fileID: 1444611821}
   - component: {fileID: 1444611823}
   m_Layer: 0
-  m_Name: TerrainGrid
+  m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,10 +346,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444611820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf67e6f5a44483940870811d24cd0009, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f6af40ca76fde74d80d3685e95ef7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spider: {fileID: 6216869016805277748, guid: cd86499381806124ca64b6babf5c0ee2, type: 3}
 --- !u!1 &1548912058
 GameObject:
   m_ObjectHideFlags: 0

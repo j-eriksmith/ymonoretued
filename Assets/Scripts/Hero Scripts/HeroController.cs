@@ -18,6 +18,7 @@ public class HeroController : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        curHealth = maxHealth;
     }
 
     void FixedUpdate()

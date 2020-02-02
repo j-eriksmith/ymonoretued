@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7636934097807798025}
   - component: {fileID: 1219178271195427563}
   - component: {fileID: 3464968540916138967}
+  - component: {fileID: 2562374156143782277}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Hero
@@ -147,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadzone: 0.1
   speed: 4
+  maxHealth: 10
 --- !u!114 &3464968540916138967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,5 +159,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 815112b7365b28b4f80c294cdc4f7638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSwordDurability: 8
+  maxShieldDurability: 8
+--- !u!114 &2562374156143782277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7636934097807798022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb5e80b510f84d40bd98ad1baa5ac7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
