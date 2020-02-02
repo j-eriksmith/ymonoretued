@@ -16,9 +16,10 @@ public abstract class Enmity : MonoBehaviour
     protected float cooldown;
     protected int health;
 
-    private bool blockMovement; // Also used for enemy I-frames
+    private bool blockMovement = false; // Also used for enemy I-frames
     private VisualEffect splat;
     private CircleCollider2D circleCollide;
+    private bool dead = false;
 
     // Start is called before the first frame update
     protected void Start()
@@ -30,23 +31,28 @@ public abstract class Enmity : MonoBehaviour
         cooldown = cooldownTime;
         blockMovement = false;
 
-
         splat = GetComponentInChildren<VisualEffect>();
-        splat.Stop();
+        Debug.Log(splat);
+        splat.gameObject.SetActive(false);
+        // splat.Play();
         circleCollide = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        cooldown -= Time.deltaTime;
         Orient();
-        if (!blockMovement)
+        if (!dead)
         {
-            Move();
-            Attack();
+            cooldown -= Time.deltaTime;
+            if (!blockMovement)
+            {
+                Move();
+                Attack();
+            }
+            Pullback();
         }
-        Pullback();
+
     }
 
     protected virtual void Pullback()
@@ -93,9 +99,12 @@ public abstract class Enmity : MonoBehaviour
 
     protected IEnumerator Die()
     {
+        dead = true;
         circleCollide.enabled = false;
         GetComponent<SpriteRenderer>().color = new Vector4(1f, 0f, 0f, 1f);
+        splat.gameObject.SetActive(true);
         splat.Play();
+        StartCoroutine(blockMovementForDuration(5f));
         Destroy(gameObject, 5f);
         yield return new WaitForSeconds(0.5f);
         GetComponent<SpriteRenderer>().enabled = false;
