@@ -24,7 +24,8 @@ public class BlacksmithController : MonoBehaviour{
     // Start is called before the first frame update
     void Start(){
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        state = State.NOT_CARRYING;
+        //TODO: change back to State.NOT_CARRYING
+        state = State.CARRYING;
     }
 
     // Update is called once per frame
