@@ -14,9 +14,16 @@ public abstract class BaseQTE : MonoBehaviour
     protected float timeOfInitialization;
     protected float timeSinceInitialization;
 
+    [SerializeField]
+    protected AudioClip eventWinSound;
+    [SerializeField]
+    protected AudioClip eventFailSound;
+    protected AudioSource qteAudioSource;
+
     public void Start()
     {
         //Initialize();
+        qteAudioSource = transform.parent.gameObject.GetComponent<AudioSource>();
     }
 
     public void Update()
