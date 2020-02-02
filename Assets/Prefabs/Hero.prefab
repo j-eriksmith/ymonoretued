@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadzone: 0.1
-  speed: 6
+  speed: 4.8
   maxHealth: 10
   walkAnimBaseSpeed: 1.7
   walkAnimHighSpeed: 6.3
@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815112b7365b28b4f80c294cdc4f7638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSwordDurability: 8
-  maxShieldDurability: 8
+  maxSwordDurability: 200
+  maxShieldDurability: 100
 --- !u!114 &2562374156143782277
 MonoBehaviour:
   m_ObjectHideFlags: 0
