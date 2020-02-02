@@ -9,34 +9,34 @@ public abstract class BaseQTE : MonoBehaviour
     public Transform blacksmithCenter;
 
     [HideInInspector]
-    public GameObject activatingPlayer; // Todo: should be the Player component
+    public GameObject activatingPlayer;
 
     protected float timeOfInitialization;
     protected float timeSinceInitialization;
 
     public void Start()
     {
-        // Initialize();
+        //Initialize();
     }
 
     public void Update()
     {
-        // if (Input.GetButtonDown("A"))
-        // {
-        //     ReceiveInput("A");
-        // }
-        // if (Input.GetButtonDown("B"))
-        // {
-        //     ReceiveInput("B");
-        // }
-        // if (Input.GetButtonDown("X"))
-        // {
-        //     ReceiveInput("X");
-        // }
-        // if (Input.GetButtonDown("Y"))
-        // {
-        //     ReceiveInput("Y");
-        // }
+/*          if (Input.GetButtonDown("A"))
+         {
+             ReceiveInput("A");
+         }
+         if (Input.GetButtonDown("B"))
+         {
+             ReceiveInput("B");
+         }
+         if (Input.GetButtonDown("X"))
+         {
+             ReceiveInput("X");
+         }
+         if (Input.GetButtonDown("Y"))
+         {
+             ReceiveInput("Y");
+         } */
     }
 
     public virtual void Initialize()

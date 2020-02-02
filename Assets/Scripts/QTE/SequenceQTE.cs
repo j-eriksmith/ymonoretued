@@ -6,29 +6,42 @@ public class SequenceQTE : BaseQTE
 {
     public int minSequenceLength;
     public int maxSequenceLength;
+    public Transform blacksmithLeft;
+    public float spaceBetweenButtonInputs;
 
     private string[] validEvents = {"A", "B", "X", "Y"};
     private Queue<string> inputSequence = new Queue<string>();
-    private SpriteRenderer promptRenderer;
+    private int inputsCompleted;
+    private GameObject grandPromptHolder;
+    private List<SpriteRenderer> promptRenderers;
 
     public override void Initialize()
     {
         base.Initialize();
+        promptRenderers = new List<SpriteRenderer>();
+        inputsCompleted = 0;
 
         int eventsToGenerate = Mathf.FloorToInt(Random.Range(minSequenceLength, maxSequenceLength + 1));
+
+        // Create gameobject where the prompt holder will live
+        grandPromptHolder = new GameObject("QTE Prompt Holder");
+        grandPromptHolder.transform.position = new Vector3(blacksmithLeft.position.x, blacksmithLeft.position.y, transform.position.z);
+
+        float shiftingButtonPlacement = 0.0f;
         for (int i = 0; i < eventsToGenerate; ++i)
         {
             string eventToEnqueue = validEvents[Mathf.FloorToInt(Random.Range(0, validEvents.Length))];
             inputSequence.Enqueue(eventToEnqueue);            
+
+            GameObject promptHolder = new GameObject();
+            promptHolder.transform.parent = grandPromptHolder.transform;
+            promptHolder.transform.localPosition = new Vector3(shiftingButtonPlacement, 0, -1);
+            promptRenderers.Add(promptHolder.AddComponent<SpriteRenderer>());
+            DisplayButtonPrompt(eventToEnqueue, promptRenderers[promptRenderers.Count - 1]);
+
+            shiftingButtonPlacement+= spaceBetweenButtonInputs;
         }
 
-        // Create gameobject where the prompt holder will live
-        GameObject promptHolder = new GameObject("QTE Prompt Holder");
-        promptHolder.transform.position = blacksmithCenter.position;
-        promptRenderer = promptHolder.AddComponent<SpriteRenderer>();        
-
-        // Show the first button prompt
-        DisplayButtonPrompt(inputSequence.Peek());
     }
 
     public override void ReceiveInput(string buttonPressed)
@@ -41,19 +54,21 @@ public class SequenceQTE : BaseQTE
 
             if (inputSequence.Count == 0)
             {
-                // TODO(smith): Call Player.QTESucceed()
+                activatingPlayer.GetComponent<BlacksmithController>().qteSucceed();
                 Debug.Log("Finished QTE!");
-                Destroy(promptRenderer.gameObject);
+                Destroy(grandPromptHolder);
             }
             else 
             {
-                DisplayButtonPrompt(inputSequence.Peek());
+                // Hide the front of the sequence    
+                promptRenderers[inputsCompleted].enabled = false;
+                inputsCompleted++;
             }
         }
         // No else case for now ... gotta finish this game
     }
 
-    void DisplayButtonPrompt(string buttonToDisplay)
+    void DisplayButtonPrompt(string buttonToDisplay, SpriteRenderer promptRenderer)
     {
         switch(buttonToDisplay)
         {

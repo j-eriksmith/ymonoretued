@@ -10,6 +10,7 @@ public class MashQTE : BaseQTE{
     private int pressesRemaining;
     private string mashButton;
     private SpriteRenderer promptRenderer;
+    public GameObject mashPrompt;
 
     public override void Initialize(){
         base.Initialize();
@@ -22,7 +23,7 @@ public class MashQTE : BaseQTE{
 
         // Create gameobject where the prompt holder will live
         GameObject promptHolder = new GameObject("QTE Prompt Holder");
-        promptHolder.transform.position = blacksmithCenter.position;
+        promptHolder.transform.position = new Vector3(blacksmithCenter.position.x, blacksmithCenter.position.y, transform.position.z);
         promptRenderer = promptHolder.AddComponent<SpriteRenderer>();        
 
         // Show the first button prompt
@@ -40,11 +41,16 @@ public class MashQTE : BaseQTE{
         if(pressesRemaining == 0){
             Debug.Log("Finished QTE!");
             Destroy(promptRenderer.gameObject);
-            activatingPlayer.GetComponent<BlacksmithController>().qteSucceed();
+            mashPrompt.SetActive(false);
+            if (activatingPlayer)
+            {
+                activatingPlayer.GetComponent<BlacksmithController>().qteSucceed();
+            }
         }
     }
 
     void DisplayButtonPrompt(string buttonToDisplay){
+        mashPrompt.SetActive(true);
         switch(buttonToDisplay){
             case "A":
                 promptRenderer.sprite = buttonSprites[0];
