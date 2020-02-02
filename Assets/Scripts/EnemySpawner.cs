@@ -20,6 +20,7 @@ public struct Line
 
 public class EnemySpawner : MonoBehaviour
 {
+    public Vector3 fieldCenter;
 
     public GameObject[] enemyPrefabs;
 
@@ -44,8 +45,8 @@ public class EnemySpawner : MonoBehaviour
         spawnAreas = new Line[1];
         spawnAreas[0].dimension = Dimension.X;
         spawnAreas[0].point = 3.0f;
-        spawnAreas[0].a = -3.0f;
-        spawnAreas[0].b = 3.0f;  // REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+        spawnAreas[0].a = -5.0f;
+        spawnAreas[0].b = 5.0f;  // REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
         Debug.Assert(enemyPrefabs.Length == spawnScales.Length);
         rng = new System.Random();
         intensity = 0;
@@ -85,7 +86,7 @@ public class EnemySpawner : MonoBehaviour
                 continue;
             p = RandomPosition();
             Debug.Log("Spawning enemy at " + p.ToString() + ", intensity level = " + IntensityScaled(1.0f).ToString());
-            Instantiate(enemyPrefabs[i], p, RandomOrientation(p));
+            Instantiate(enemyPrefabs[i], p, RandomOrientation(p)).SetActive(true);
             ScheduleNextEnemy(i);
         }
     }
@@ -145,6 +146,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Quaternion RandomOrientation(Vector3 p)
     {
-        return Quaternion.LookRotation(-p);
+        Vector3 delta = fieldCenter - p;
+        return Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(delta.y, delta.x));
     }
 }
