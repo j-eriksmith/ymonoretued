@@ -7,7 +7,7 @@ public class MeleeEnmity : Enmity
     private Animator animator;
     private bool attacking;
 
-    protected void Start()
+    new void Start()
     {
         base.Start();
         attacking = false;

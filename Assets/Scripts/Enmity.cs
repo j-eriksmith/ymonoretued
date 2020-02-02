@@ -28,6 +28,15 @@ public abstract class Enmity : MonoBehaviour
         Orient();
         Move();
         Attack();
+        Pullback();
+    }
+
+    protected virtual void Pullback()
+    {
+        Vector3 p = transform.position;
+        p.x = Mathf.Min(EnemySpawner.arena.xMax, Mathf.Max(EnemySpawner.arena.xMin, p.x));
+        p.y = Mathf.Min(EnemySpawner.arena.yMax, Mathf.Max(EnemySpawner.arena.yMin, p.y));
+        transform.position = p;
     }
 
     protected virtual void Orient()

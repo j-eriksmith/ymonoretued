@@ -20,7 +20,7 @@ public struct Line
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Vector3 fieldCenter;
+    public static Rect arena;
 
     public GameObject[] enemyPrefabs;
 
@@ -39,15 +39,36 @@ public class EnemySpawner : MonoBehaviour
 
     private System.Random rng;
 
+    void SetBoundaries()
+    {
+        // TODO: This could be unified for all the code that needs to use it
+        arena = Rect.MinMaxRect(-5.0f, -3.0f, 5.0f, 3.0f);
+        spawnAreas = new Line[3];
+
+        // Top spawn area
+        spawnAreas[0].dimension = Dimension.X;
+        spawnAreas[0].point = arena.yMax;
+        spawnAreas[0].a = arena.xMin;
+        spawnAreas[0].b = arena.xMax;
+
+        // Right spawn area
+        spawnAreas[1].dimension = Dimension.Y;
+        spawnAreas[1].point = arena.xMax;
+        spawnAreas[1].a = arena.yMin;
+        spawnAreas[1].b = arena.yMax;
+
+        // Bottom spawn area
+        spawnAreas[2].dimension = Dimension.X;
+        spawnAreas[2].point = arena.yMin;
+        spawnAreas[2].a = arena.xMin;
+        spawnAreas[2].b = arena.xMax;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        spawnAreas = new Line[1];
-        spawnAreas[0].dimension = Dimension.X;
-        spawnAreas[0].point = 3.0f;
-        spawnAreas[0].a = -5.0f;
-        spawnAreas[0].b = 5.0f;  // REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
         Debug.Assert(enemyPrefabs.Length == spawnScales.Length);
+        SetBoundaries();
         rng = new System.Random();
         intensity = 0;
         nextTimes = new float[enemyPrefabs.Length];
@@ -63,21 +84,21 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy();
     }
 
-    private void AccumulateTime()
+    void AccumulateTime()
     {
         for (int i = 0; i < timesSince.Length; i++)
             timesSince[i] += Time.deltaTime;
         intensity += Time.deltaTime;
     }
 
-    private void ScheduleNextEnemy(int i)
+    void ScheduleNextEnemy(int i)
     {
         nextTimes[i] = RandomWait(IntensityScaled(spawnScales[i]));
         timesSince[i] = 0.0f;
         Debug.Log("Next enemy scheduled for t+" + nextTimes[i].ToString());
     }
 
-    private void SpawnEnemy()
+    void SpawnEnemy()
     {
         Vector3 p;
         for (int i = 0; i < enemyPrefabs.Length; i++)
@@ -91,7 +112,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private float IntensityScaled(float beta)
+    float IntensityScaled(float beta)
     {
         // Intensity has two parameters:
         //  intensityMidgame: the point in the round (in seconds) at which sigmoid is 0.5
@@ -99,13 +120,13 @@ public class EnemySpawner : MonoBehaviour
         return beta / (1.0f + Mathf.Exp(intensityScale * (intensity - intensityMidgame)));
     }
 
-    private float RandomWait(float beta)
+    float RandomWait(float beta)
     {
         // Sample uniformly from the inverse CDF of the exponential distribution
         return -beta * Mathf.Log((float)rng.NextDouble());
     }
 
-    private Vector3 RandomPosition()
+    Vector3 RandomPosition()
     {
         float[] sampleSpace = new float[spawnAreas.Length + 1];
         float selectedPoint;
@@ -144,9 +165,9 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private Quaternion RandomOrientation(Vector3 p)
+    Quaternion RandomOrientation(Vector3 p)
     {
-        Vector3 delta = fieldCenter - p;
+        Vector3 delta = (Vector3)arena.center - p;
         return Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(delta.y, delta.x));
     }
 }
