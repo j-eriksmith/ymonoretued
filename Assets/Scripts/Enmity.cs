@@ -34,8 +34,8 @@ public abstract class Enmity : MonoBehaviour
     protected virtual void Pullback()
     {
         Vector3 p = transform.position;
-        p.x = Mathf.Min(EnemySpawner.arena.xMax, Mathf.Max(EnemySpawner.arena.xMin, p.x));
-        p.y = Mathf.Min(EnemySpawner.arena.yMax, Mathf.Max(EnemySpawner.arena.yMin, p.y));
+        p.x = Mathf.Min(Bounds.rect.xMax, Mathf.Max(Bounds.rect.xMin, p.x));
+        p.y = Mathf.Min(Bounds.rect.yMax, Mathf.Max(Bounds.rect.yMin, p.y));
         transform.position = p;
     }
 

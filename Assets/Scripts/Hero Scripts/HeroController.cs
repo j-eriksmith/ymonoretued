@@ -39,9 +39,22 @@ public class HeroController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        Pullback();
+    }
+
+    protected virtual void Pullback()
+    {
+        Vector3 p = transform.position;
+        p.x = Mathf.Min(Bounds.rect.xMax, Mathf.Max(Bounds.rect.xMin, p.x));
+        p.y = Mathf.Min(Bounds.rect.yMax, Mathf.Max(Bounds.rect.yMin, p.y));
+        transform.position = p;
+    }
+
     public void damagePlayer(int dmg)
     {
         curHealth -= dmg;
-        if (curHealth <= 0) ; // die
+        // if (curHealth <= 0) ; // die
     }
 }

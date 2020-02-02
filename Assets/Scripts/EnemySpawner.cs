@@ -20,8 +20,6 @@ public struct Line
 
 public class EnemySpawner : MonoBehaviour
 {
-    public static Rect arena;
-
     public GameObject[] enemyPrefabs;
 
     // The betas of the exponential distributions for new enemy spawn times
@@ -41,27 +39,25 @@ public class EnemySpawner : MonoBehaviour
 
     void SetBoundaries()
     {
-        // TODO: This could be unified for all the code that needs to use it
-        arena = Rect.MinMaxRect(-5.0f, -3.0f, 5.0f, 3.0f);
         spawnAreas = new Line[3];
 
         // Top spawn area
         spawnAreas[0].dimension = Dimension.X;
-        spawnAreas[0].point = arena.yMax;
-        spawnAreas[0].a = arena.xMin;
-        spawnAreas[0].b = arena.xMax;
+        spawnAreas[0].point = Bounds.rect.yMax;
+        spawnAreas[0].a = Bounds.rect.xMin;
+        spawnAreas[0].b = Bounds.rect.xMax;
 
         // Right spawn area
         spawnAreas[1].dimension = Dimension.Y;
-        spawnAreas[1].point = arena.xMax;
-        spawnAreas[1].a = arena.yMin;
-        spawnAreas[1].b = arena.yMax;
+        spawnAreas[1].point = Bounds.rect.xMax;
+        spawnAreas[1].a = Bounds.rect.yMin;
+        spawnAreas[1].b = Bounds.rect.yMax;
 
         // Bottom spawn area
         spawnAreas[2].dimension = Dimension.X;
-        spawnAreas[2].point = arena.yMin;
-        spawnAreas[2].a = arena.xMin;
-        spawnAreas[2].b = arena.xMax;
+        spawnAreas[2].point = Bounds.rect.yMin;
+        spawnAreas[2].a = Bounds.rect.xMin;
+        spawnAreas[2].b = Bounds.rect.xMax;
     }
 
     // Start is called before the first frame update
@@ -167,7 +163,7 @@ public class EnemySpawner : MonoBehaviour
 
     Quaternion RandomOrientation(Vector3 p)
     {
-        Vector3 delta = (Vector3)arena.center - p;
+        Vector3 delta = (Vector3)Bounds.rect.center - p;
         return Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(delta.y, delta.x));
     }
 }
