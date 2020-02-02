@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &892348778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 892348779}
+  m_Layer: 0
+  m_Name: SpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &892348779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892348778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.85, y: -1.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3987987676578264731}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3987987676358341219
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,10 +201,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987987676578264728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: -1.04, z: -1}
+  m_LocalPosition: {x: -1.91, y: 1.06, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3987987677282370326}
+  - {fileID: 892348779}
   m_Father: {fileID: 3987987676467803125}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -233,7 +264,7 @@ MonoBehaviour:
   - {fileID: 4328293651333327672, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
   - {fileID: -6359266562889517256, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
   - {fileID: 4995109362737295961, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
-  blacksmithCenter: {fileID: 3987987676467803125}
+  blacksmithCenter: {fileID: 892348779}
   activatingPlayer: {fileID: 0}
   minSequenceLength: 2
   maxSequenceLength: 2
@@ -267,7 +298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987987677124404379}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6000004, y: 0.34, z: 0}
+  m_LocalPosition: {x: -2.17, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3987987676467803125}
@@ -407,7 +438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987987677282370327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47, y: 0.13, z: 0}
+  m_LocalPosition: {x: 0.47, y: 1.04, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3987987676578264731}
@@ -514,8 +545,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987987677341777373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.00000023842, z: 0}
-  m_LocalScale: {x: 8.6875, y: 2.35, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 3987987676467803125}
   m_RootOrder: 2
@@ -597,7 +628,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987987677427786799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.21, y: -1.04, z: -1}
+  m_LocalPosition: {x: 0.94, y: -1.95, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3987987677179904500}
@@ -662,9 +693,9 @@ MonoBehaviour:
   blacksmithCenter: {fileID: 3987987676467803125}
   activatingPlayer: {fileID: 0}
   minSequenceLength: 5
-  maxSequenceLength: 10
+  maxSequenceLength: 8
   blacksmithLeft: {fileID: 3987987677124404378}
-  spaceBetweenButtonInputs: 0.8
+  spaceBetweenButtonInputs: 0.6
 --- !u!1 &3987987677774831089
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987987677774831089}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47, y: 0.13, z: 0}
+  m_LocalPosition: {x: 0.47, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3987987678089348839}
@@ -800,7 +831,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987987677954469549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.01, y: -1.04, z: -1}
+  m_LocalPosition: {x: -1.84, y: -2.05, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3987987676358341218}
@@ -896,7 +927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987987678089348836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.11, y: -1.04, z: -1}
+  m_LocalPosition: {x: 0.86, y: 1.09, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5950324601576551370}
@@ -962,8 +993,8 @@ MonoBehaviour:
   - {fileID: 4995109362737295961, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
   blacksmithCenter: {fileID: 864928038444312728}
   activatingPlayer: {fileID: 0}
-  minTimeToClose: 0.7
-  maxTimeToClose: 1
+  minTimeToClose: 0.5
+  maxTimeToClose: 0.8
   minTimeToStart: 2
   maxTimeToStart: 3
   circleSprite: {fileID: 21300000, guid: b1801a2ff3898a8409d2f7416dcfbf73, type: 3}
@@ -1025,7 +1056,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6347557731383614411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8, y: 2.18, z: 0}
+  m_LocalPosition: {x: 1.11, y: 2.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3987987677954469548}
@@ -1085,7 +1116,7 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 400
+  m_FontSize: 240
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 9643113583d46534d99aa84172a391f1, type: 3}
@@ -1118,7 +1149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6908005309002654549}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.09, y: 2.18, z: 0}
+  m_LocalPosition: {x: -3.24, y: -0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3987987678089348839}
@@ -1178,7 +1209,7 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 400
+  m_FontSize: 220
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 9643113583d46534d99aa84172a391f1, type: 3}
@@ -1209,7 +1240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7342165409953758169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 1.53, z: 0}
+  m_LocalPosition: {x: 0.45, y: -1.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3987987678089348839}
