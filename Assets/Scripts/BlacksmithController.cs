@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum State{
+    CARRYING,
+    NOT_CARRYING,
+    IN_QTE
+}
+
 public class BlacksmithController : MonoBehaviour{
     public float deadzone = 0.1f;
     public float speed = 100;
@@ -13,12 +19,12 @@ public class BlacksmithController : MonoBehaviour{
     private GameObject nearbyStation;
     private BaseQTE nearbyStationQTE;
 
-    private bool inQTE;
+    private State state;
 
     // Start is called before the first frame update
     void Start(){
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        inQTE = false;
+        state = State.NOT_CARRYING;
     }
 
     // Update is called once per frame
@@ -35,7 +41,7 @@ public class BlacksmithController : MonoBehaviour{
         //     gameObject.transform.position += new Vector3(0, transform, 0);
         // }
 
-        if(inQTE){
+        if(state == State.IN_QTE){
             if(Input.GetButtonDown("A")){
                 nearbyStationQTE.ReceiveInput("A");
             }
@@ -53,19 +59,19 @@ public class BlacksmithController : MonoBehaviour{
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
 
-            if(nearbyStation){
+            if(nearbyStation && state == State.CARRYING){
                 if(Input.GetButtonDown("A")){
                     // Debug.Log(nearbyStation.GetComponent<Transform>().position);
                     Debug.Log("Initialize");
                     nearbyStationQTE.Initialize();
-                    inQTE = true;
+                    state = State.IN_QTE;
                 }
             }
         }
     }
 
     void FixedUpdate(){
-        if(!inQTE){
+        if(state == State.CARRYING || state == State.NOT_CARRYING){
             if(Mathf.Abs(horizontal) > deadzone){
                 float transform = horizontal * speed * Time.fixedDeltaTime;
                 rb2D.position += new Vector2(transform, 0);
@@ -89,6 +95,6 @@ public class BlacksmithController : MonoBehaviour{
     }
 
     public void qteSucceed(){
-        inQTE = false;
+        state = State.CARRYING;
     }
 }

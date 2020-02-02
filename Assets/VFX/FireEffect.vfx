@@ -19,9 +19,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 890
-    y: -228
-    width: 1620
-    height: 2449
+    y: -244
+    width: 2277
+    height: 2469
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2330,27 +2330,33 @@ VisualEffectResource:
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 3
+        data[3]: 7
       - op: 1
-        valueIndex: 143
+        valueIndex: 141
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 7
+        data[3]: 3
       - op: 1
         valueIndex: 144
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 1
+        data[3]: 7
       - op: 1
         valueIndex: 145
         data[0]: -1
         data[1]: -1
         data[2]: -1
         data[3]: 1
-      - op: 9
+      - op: 1
         valueIndex: 146
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 1
+      - op: 9
+        valueIndex: 147
         data[0]: -1
         data[1]: -1
         data[2]: -1
@@ -2384,15 +2390,15 @@ VisualEffectResource:
         - m_ExpressionIndex: 46
           m_Value: 360
         - m_ExpressionIndex: 49
-          m_Value: 3
+          m_Value: 1
         - m_ExpressionIndex: 50
-          m_Value: 0.3
+          m_Value: 3
         - m_ExpressionIndex: 57
           m_Value: 0.5
-        - m_ExpressionIndex: 61
-          m_Value: 2
         - m_ExpressionIndex: 62
-          m_Value: 1
+          m_Value: 2
+        - m_ExpressionIndex: 63
+          m_Value: 0.3
       m_Vector2f:
         m_Array:
         - m_ExpressionIndex: 31
@@ -2431,7 +2437,7 @@ VisualEffectResource:
           m_Value: {x: -0.2, y: 0.2, z: 0}
         - m_ExpressionIndex: 43
           m_Value: {x: 0.2, y: 0.3, z: 0}
-        - m_ExpressionIndex: 59
+        - m_ExpressionIndex: 60
           m_Value: {x: -0.15, y: 0.2, z: 0}
       m_Vector4f:
         m_Array: []
@@ -2495,17 +2501,17 @@ VisualEffectResource:
             - serializedVersion: 3
               time: 0.5982702
               value: 0.9623081
-              inSlope: 1.4348447
-              outSlope: 1.4348447
+              inSlope: 0.5297359
+              outSlope: 0.5297359
               tangentMode: 0
               weightedMode: 0
               inWeight: 0
               outWeight: 0
             - serializedVersion: 3
-              time: 0.9963236
-              value: 0.6494185
-              inSlope: -1.0621275
-              outSlope: -1.0621275
+              time: 0.9999857
+              value: 1.0000044
+              inSlope: 0.05339198
+              outSlope: 0.05339198
               tangentMode: 0
               weightedMode: 0
               inWeight: 0
@@ -2552,10 +2558,10 @@ VisualEffectResource:
               inWeight: 0
               outWeight: 0
             - serializedVersion: 3
-              time: 0.052700568
-              value: 1.0029354
-              inSlope: -0.04888721
-              outSlope: -0.04888721
+              time: 0.049024098
+              value: 1.0076413
+              inSlope: 0.20739608
+              outSlope: 0.20739608
               tangentMode: 0
               weightedMode: 0
               inWeight: 0
@@ -2563,8 +2569,8 @@ VisualEffectResource:
             - serializedVersion: 3
               time: 1
               value: 0
-              inSlope: -2.49863
-              outSlope: -2.49863
+              inSlope: 0.23999994
+              outSlope: 0.23999994
               tangentMode: 0
               weightedMode: 0
               inWeight: 0
@@ -2636,10 +2642,10 @@ VisualEffectResource:
         - m_ExpressionIndex: 4
           m_Value:
             serializedVersion: 2
-            key0: {r: 3.9999995, g: 3.5859725, b: 2.7015705, a: 0}
-            key1: {r: 4.7357492, g: 3.423793, b: 0.55846095, a: 1}
-            key2: {r: 1.827451, g: 0.3529412, b: 0.19607843, a: 1}
-            key3: {r: 0.5943396, g: 0, b: 0.017823229, a: 0}
+            key0: {r: 23.968628, g: 21.584314, b: 16.188236, a: 0}
+            key1: {r: 5.992157, g: 4.3607845, b: 0.72156864, a: 0.2509804}
+            key2: {r: 2.5193918, g: 0.48804972, b: 0.27700117, a: 0.7529412}
+            key3: {r: 0.84298223, g: 0, b: 0.027729679, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
@@ -2697,15 +2703,15 @@ VisualEffectResource:
           m_Value:
             serializedVersion: 2
             key0: {r: 1, g: 0.93247044, b: 0, a: 0.050980393}
-            key1: {r: 1, g: 0.23502252, b: 0, a: 1}
-            key2: {r: 0.8679245, g: 0.05150354, b: 0, a: 0.5019608}
-            key3: {r: 0, g: 0, b: 0, a: 0}
+            key1: {r: 1, g: 0.23502252, b: 0, a: 0.5019608}
+            key2: {r: 0.8679245, g: 0.05150354, b: 0, a: 0.7529412}
+            key3: {r: 0, g: 0, b: 0, a: 0.5019608}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
             ctime0: 0
-            ctime1: 5975
+            ctime1: 9252
             ctime2: 57054
             ctime3: 0
             ctime4: 0
@@ -2714,15 +2720,15 @@ VisualEffectResource:
             ctime7: 0
             atime0: 0
             atime1: 13878
-            atime2: 49151
-            atime3: 65535
-            atime4: 0
+            atime2: 22359
+            atime3: 32382
+            atime4: 64764
             atime5: 0
             atime6: 0
             atime7: 0
             m_Mode: 0
             m_NumColorKeys: 3
-            m_NumAlphaKeys: 4
+            m_NumAlphaKeys: 5
         - m_ExpressionIndex: 14
           m_Value:
             serializedVersion: 2
@@ -2746,7 +2752,7 @@ VisualEffectResource:
             atime1: 13878
             atime2: 32575
             atime3: 47224
-            atime4: 59945
+            atime4: 0
             atime5: 0
             atime6: 0
             atime7: 0
@@ -2759,7 +2765,9 @@ VisualEffectResource:
           m_Value: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         - m_ExpressionIndex: 54
           m_Value: {fileID: 2800000, guid: 970322a15ab64ff42bd9b21552a2009d, type: 3}
-        - m_ExpressionIndex: 60
+        - m_ExpressionIndex: 59
+          m_Value: {fileID: 2800000, guid: 3d8ab87392c4f4240aa958b3e43ab100, type: 3}
+        - m_ExpressionIndex: 61
           m_Value: {fileID: 2800000, guid: 49cb5aa34272b034d8b754c65d9cdbfa, type: 3}
       m_Bool:
         m_Array: []
@@ -3257,7 +3265,7 @@ VisualEffectResource:
       temporaryBuffers: []
       values:
       - nameId: localToWorld
-        index: 63
+        index: 64
       params: []
       processor: {fileID: 0}
       shaderSourceIndex: 12
@@ -3352,7 +3360,7 @@ VisualEffectResource:
       - nameId: Alpha_f
         index: 58
       - nameId: mainTexture
-        index: 54
+        index: 59
       params:
       - nameId: sortPriority
         index: 2
@@ -3496,7 +3504,7 @@ VisualEffectResource:
       - nameId: Color_e
         index: 32
       - nameId: mainTexture
-        index: 60
+        index: 61
       params:
       - nameId: sortPriority
         index: 3
@@ -5119,7 +5127,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614624}
   - {fileID: 8926484042661614626}
   - {fileID: 8926484042661614629}
-  - {fileID: 8926484042661614816}
+  - {fileID: 8926484042661614909}
   m_UIPosition: {x: 1478, y: 1276}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
@@ -5280,7 +5288,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"970322a15ab64ff42bd9b21552a2009d","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"3d8ab87392c4f4240aa958b3e43ab100","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: mainTexture
@@ -5370,7 +5378,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.0,"g":0.932470440864563,"b":0.0,"a":1.0},"time":0.0},{"color":{"r":1.0,"g":0.23502251505851746,"b":0.0,"a":1.0},"time":0.09117265790700913},{"color":{"r":0.8679245114326477,"g":0.051503539085388187,"b":0.0,"a":1.0},"time":0.8705882430076599}],"alphaKeys":[{"alpha":0.05098039284348488,"time":0.0},{"alpha":1.0,"time":0.21176470816135407},{"alpha":0.501960813999176,"time":0.7499961853027344},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.0,"g":0.932470440864563,"b":0.0,"a":1.0},"time":0.0},{"color":{"r":1.0,"g":0.23502251505851746,"b":0.0,"a":1.0},"time":0.1411764770746231},{"color":{"r":0.8679245114326477,"g":0.051503539085388187,"b":0.0,"a":1.0},"time":0.8705882430076599}],"alphaKeys":[{"alpha":0.05098039284348488,"time":0.0},{"alpha":0.501960813999176,"time":0.21176470816135407},{"alpha":0.7529411911964417,"time":0.34117648005485537},{"alpha":0.501960813999176,"time":0.4941176474094391},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: Color
@@ -5567,7 +5575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78581a96eae8bf4398c282eb0b098bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -6687,7 +6695,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":-0.011028289794921875,"value":0.232940673828125,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.5982701778411865,"value":0.9623081088066101,"inTangent":1.434844732284546,"outTangent":1.434844732284546,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.9963235855102539,"value":0.6494184732437134,"inTangent":-1.0621274709701539,"outTangent":-1.0621274709701539,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":-0.011028289794921875,"value":0.232940673828125,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.5982701778411865,"value":0.9623081088066101,"inTangent":0.5297359228134155,"outTangent":0.5297359228134155,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.9999856948852539,"value":1.0000044107437134,"inTangent":0.05339197814464569,"outTangent":0.05339197814464569,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -7767,7 +7775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78581a96eae8bf4398c282eb0b098bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -9130,68 +9138,6 @@ MonoBehaviour:
       m_RegexMaxLength: 0
   m_Direction: 0
   m_LinkedSlots: []
---- !u!114 &8926484042661614816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ec2c1930009b04ea08905b47262415, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 8926484042661614615}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
-  m_UISuperCollapsed: 0
-  m_InputSlots:
-  - {fileID: 8926484042661614817}
-  m_OutputSlots: []
-  m_Disabled: 0
-  attribute: alpha
-  Composition: 0
-  AlphaComposition: 0
-  SampleMode: 0
-  Mode: 1
-  ColorMode: 3
-  channels: 6
---- !u!114 &8926484042661614817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c117b74c5c58db542bffe25c78fe92db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661614817}
-  m_MasterData:
-    m_Owner: {fileID: 8926484042661614816}
-    m_Value:
-      m_Type:
-        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.05270056799054146,"value":1.0029354095458985,"inTangent":-0.048887211829423907,"outTangent":-0.048887211829423907,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":-2.4986300468444826,"outTangent":-2.4986300468444826,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
-    m_Space: 2147483647
-  m_Property:
-    name: Alpha
-    m_serializedType:
-      m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    attributes: []
-  m_Direction: 0
-  m_LinkedSlots: []
 --- !u!114 &8926484042661614818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9724,7 +9670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78581a96eae8bf4398c282eb0b098bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -10606,30 +10552,6 @@ MonoBehaviour:
   angularIntegration: 0
   ageParticles: 1
   reapParticles: 1
---- !u!114 &8926484042661614858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78581a96eae8bf4398c282eb0b098bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  title: 
-  m_Owners: []
-  dataType: 0
-  capacity: 25
-  stripCapacity: 16
-  particlePerStripCount: 16
-  m_Space: 0
 --- !u!114 &8926484042661614859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11757,30 +11679,6 @@ MonoBehaviour:
       m_RegexMaxLength: 0
   m_Direction: 0
   m_LinkedSlots: []
---- !u!114 &8926484042661614889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78581a96eae8bf4398c282eb0b098bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  title: 
-  m_Owners: []
-  dataType: 0
-  capacity: 25
-  stripCapacity: 16
-  particlePerStripCount: 16
-  m_Space: 0
 --- !u!114 &8926484042661614890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12152,7 +12050,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":3.999999523162842,"g":3.585972547531128,"b":2.701570510864258,"a":1.0},"time":0.06176852062344551},{"color":{"r":4.735749244689941,"g":3.423793077468872,"b":0.5584609508514404,"a":1.0},"time":0.29117265343666079},{"color":{"r":1.8274509906768799,"g":0.3529411852359772,"b":0.19607843458652497,"a":1.0},"time":0.6235294342041016},{"color":{"r":0.5943396091461182,"g":0.0,"b":0.017823228612542154,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.7676509022712708},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":23.9686279296875,"g":21.584314346313478,"b":16.188236236572267,"a":1.0},"time":0.06176852062344551},{"color":{"r":5.992156982421875,"g":4.360784530639648,"b":0.7215686440467835,"a":1.0},"time":0.29117265343666079},{"color":{"r":2.5193917751312258,"g":0.48804971575737,"b":0.27700117230415347,"a":1.0},"time":0.6235294342041016},{"color":{"r":0.8429822325706482,"g":0.0,"b":0.02772967889904976,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":0.250980406999588,"time":0.06764324754476547},{"alpha":0.7529411911964417,"time":0.7676509022712708},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: Color
@@ -12392,3 +12290,65 @@ MonoBehaviour:
   m_Direction: 1
   m_LinkedSlots:
   - {fileID: 8926484042661614870}
+--- !u!114 &8926484042661614909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ec2c1930009b04ea08905b47262415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614615}
+  m_Children: []
+  m_UIPosition: {x: -50.063843, y: -121.8858}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots:
+  - {fileID: 8926484042661614910}
+  m_OutputSlots: []
+  m_Disabled: 0
+  attribute: alpha
+  Composition: 0
+  AlphaComposition: 0
+  SampleMode: 0
+  Mode: 1
+  ColorMode: 3
+  channels: 6
+--- !u!114 &8926484042661614910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c117b74c5c58db542bffe25c78fe92db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614910}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614909}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.04902409762144089,"value":1.007641315460205,"inTangent":0.20739607512950898,"outTangent":0.20739607512950898,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":0.2399999350309372,"outTangent":0.2399999350309372,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+    m_Space: 2147483647
+  m_Property:
+    name: Alpha
+    m_serializedType:
+      m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attributes: []
+  m_Direction: 0
+  m_LinkedSlots: []
