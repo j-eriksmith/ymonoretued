@@ -114,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -134,8 +134,8 @@ TextureImporter:
       name: spider_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 0
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 976a81a634f859810800000000000000
-      internalID: 1771479548145739385
+      spriteID: 5af3333ab97646140800000000000000
+      internalID: 4712005028292018085
       vertices: []
       indices: 
       edges: []
@@ -155,8 +155,8 @@ TextureImporter:
       name: spider_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e6e75181ec8aca30800000000000000
-      internalID: 4236353299660924646
+      spriteID: f26e461406f094940800000000000000
+      internalID: 5280768944157025839
       vertices: []
       indices: 
       edges: []
@@ -176,7 +176,7 @@ TextureImporter:
       name: spider_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b27a91aae00016420800000000000000
-      internalID: 2621376521089689387
+      spriteID: 4ff896dae2b690ca0800000000000000
+      internalID: -6050186776173506572
       vertices: []
       indices: 
       edges: []
