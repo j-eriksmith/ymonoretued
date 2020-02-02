@@ -80,13 +80,15 @@ public abstract class Enmity : MonoBehaviour
 
         rb.velocity = delta;
 
-        if (health <= 0) Die();
+        if (health <= 0) StartCoroutine(Die());
     }
 
-    protected void Die()
+    protected IEnumerator Die()
     {
         GetComponent<SpriteRenderer>().color = new Vector4(1f, 0f, 0f, 1f);
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 5f);
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     IEnumerator blockMovementForDuration(float duration)
