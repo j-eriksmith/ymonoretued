@@ -27,7 +27,7 @@ public class BlacksmithController : MonoBehaviour{
     void Start(){
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         //TODO: change back to State.NOT_CARRYING
-        state = State.CARRYING;
+        state = State.NOT_CARRYING;
     }
 
     // Update is called once per frame
@@ -61,18 +61,27 @@ public class BlacksmithController : MonoBehaviour{
         else{
             horizontal = Input.GetAxis(blacksmithString + " Horizontal");
             vertical = -1 * Input.GetAxis(blacksmithString + " Vertical");
-            //Debug.Log(horizontal);
-            //Debug.Log(vertical);
-
-            //Debug.Log(Input.GetJoystickNames());
-            //Debug.Log(Input.GetJoystickNames());
 
             if(nearbyStation && state == State.CARRYING){
                 if(Input.GetButtonDown(blacksmithString + " A")){
-                    // Debug.Log(nearbyStation.GetComponent<Transform>().position);
-                    Debug.Log("Initialize");
-                    nearbyStationQTE.Initialize();
-                    state = State.IN_QTE;
+                    if(nearbyStation.tag == "Dropoff"){
+                        Debug.Log("Dropping off");
+                        nearbyStation.GetComponent<DropoffZoneController>().Dropoff();
+                        state = State.NOT_CARRYING;
+                    }
+                    else{
+                        nearbyStationQTE.Initialize();
+                        state = State.IN_QTE;
+                    }
+                }
+            }
+            else if(nearbyStation && state == State.NOT_CARRYING){
+                if(Input.GetButtonDown(blacksmithString + " A")){
+                    if(nearbyStation.tag == "Dropoff"){
+                        Debug.Log("Picking up");
+                        nearbyStation.GetComponent<DropoffZoneController>().Pickup();
+                        state = State.CARRYING;
+                    }
                 }
             }
         }
@@ -94,7 +103,11 @@ public class BlacksmithController : MonoBehaviour{
 
     public void updateNearbyStation(GameObject g){
         nearbyStation = g;
-        nearbyStationQTE = g.GetComponent<BaseQTE>();
+
+        BaseQTE baseQTE = g.GetComponent<BaseQTE>();
+        if(baseQTE){
+            nearbyStationQTE = g.GetComponent<BaseQTE>();
+        }
     }
     
     public void resetNearbyStation(){
