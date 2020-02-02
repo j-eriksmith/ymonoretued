@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public abstract class Enmity : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public abstract class Enmity : MonoBehaviour
     protected int health;
 
     private bool blockMovement; // Also used for enemy I-frames
+    private VisualEffect splat;
+    private CircleCollider2D circleCollide;
 
     // Start is called before the first frame update
     protected void Start()
@@ -26,6 +29,11 @@ public abstract class Enmity : MonoBehaviour
         Debug.Log("Enemy spawned!");
         cooldown = cooldownTime;
         blockMovement = false;
+
+
+        splat = GetComponentInChildren<VisualEffect>();
+        splat.Stop();
+        circleCollide = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -85,7 +93,9 @@ public abstract class Enmity : MonoBehaviour
 
     protected IEnumerator Die()
     {
+        circleCollide.enabled = false;
         GetComponent<SpriteRenderer>().color = new Vector4(1f, 0f, 0f, 1f);
+        splat.Play();
         Destroy(gameObject, 5f);
         yield return new WaitForSeconds(0.5f);
         GetComponent<SpriteRenderer>().enabled = false;

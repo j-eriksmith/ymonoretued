@@ -16,21 +16,28 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject masterPauseGameObject;
     public GameObject restartButton;
     public GameObject endMenu;
+    public GameObject gameUI;
 
 
     public Text swordDur;
-    public Text shieldDur;
+    public Text health;
+
+    private ItemDurability itemDur;
+    private HeroController hero;
 
     // Start is called before the first frame update
     void Start()
     {
         CloseMenus();
+        // AdjustTime(1);
+        itemDur = FindObjectOfType<ItemDurability>();
+        hero = FindObjectOfType<HeroController>();
     }
 
     void Update()
     {
-        // swordDur.text = 
-        // shieldDur.text = 
+        swordDur.text = itemDur.getSwordDurability().ToString() + " %";
+        health.text = hero.GetHealth().ToString();
     }
 
 
@@ -39,8 +46,9 @@ public class PauseMenuManager : MonoBehaviour
         masterPauseGameObject.SetActive(true);
         mainPauseMenu.SetActive(true);
         howToPlayMenu.SetActive(false);
+        gameUI.SetActive(false);
         EventSystem.current.SetSelectedGameObject(resumeButton);
-        // time stuff here?
+        // AdjustTime(0);
 
     }
 
@@ -50,12 +58,13 @@ public class PauseMenuManager : MonoBehaviour
         mainPauseMenu.SetActive(false);
         howToPlayMenu.SetActive(false);
         endMenu.SetActive(false);
+        gameUI.SetActive(true);
     }
 
     public void ResumeGame()
     {
         CloseMenus();
-        // time stuff here?
+        // AdjustTime(1);
     }
 
     public void OpenHowToPlay()
@@ -78,8 +87,16 @@ public class PauseMenuManager : MonoBehaviour
     public void EndGame()
     {
         endMenu.SetActive(true);
+        gameUI.SetActive(false);
         EventSystem.current.SetSelectedGameObject(restartButton);
-        // time stuff here?
+        // AdjustTime(0);
+
+        
+    }
+
+    private void AdjustTime(float scale)
+    {
+        Time.timeScale = scale;
     }
 
 

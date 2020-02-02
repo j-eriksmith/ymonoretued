@@ -38,8 +38,8 @@ public class HeroController : MonoBehaviour
     void Update()
     {
         rb.velocity = Vector2.zero;
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Hero Horizontal");
+        vertical = Input.GetAxis("Hero Vertical");
 
         if (Mathf.Abs(horizontal) > deadzone)
         {
@@ -52,7 +52,7 @@ public class HeroController : MonoBehaviour
         {
             hasInputThisFrame = true;
             moving = true;
-            rb.velocity += new Vector2(0, vertical * speed);
+            rb.velocity -= new Vector2(0, vertical * speed);
         }
 
         if (!hasInputThisFrame) moving = false;
@@ -95,6 +95,11 @@ public class HeroController : MonoBehaviour
     {
         health -= dmg;
         if (health <= 0) Die();
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
     private void Die()
