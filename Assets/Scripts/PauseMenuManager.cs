@@ -37,7 +37,7 @@ public class PauseMenuManager : MonoBehaviour
     void Update()
     {
         swordDur.text = itemDur.getSwordDurability().ToString() + " %";
-        // health.text = hero.GetHealth().ToString();
+        health.text = hero.GetHealth().ToString();
     }
 
 

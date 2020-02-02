@@ -24,12 +24,12 @@ public class HeroAttackDefend : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.X) && itemDurability.canUseShield() && !attacking)
+        if ((Input.GetKey(KeyCode.X) || Input.GetButtonDown("Hero B")) && itemDurability.canUseShield() && !attacking)
         {
-
+            
         }
 
-        else if (Input.GetKeyDown(KeyCode.Z) && itemDurability.canUseSword() && !attacking)
+        else if ((Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("Hero A")) && itemDurability.canUseSword() && !attacking)
         {
             attacking = true;
             itemDurability.damageSword(itemDurability.damagePerSwing);
