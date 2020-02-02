@@ -25,7 +25,7 @@ public class HeroAttackDefend : MonoBehaviour
 
         }
 
-        else if (Input.GetKeyDown(KeyCode.Z) && itemDurability.canUseSword())
+        else if (Input.GetKeyDown(KeyCode.Z) && itemDurability.canUseSword() && !attacking)
         {
             attacking = true;
             StartCoroutine(SwordAttack());
@@ -36,8 +36,9 @@ public class HeroAttackDefend : MonoBehaviour
     {
         sword.SetActive(true);
         swordAnimator.Play("SwordSwing");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.26f);
         sword.SetActive(false);
+        yield return new WaitForSeconds(0.04f);
         attacking = false;
     }
 
