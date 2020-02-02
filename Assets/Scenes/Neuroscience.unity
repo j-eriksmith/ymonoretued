@@ -150,7 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9126eda6fb2b54132888c146fa8caae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldCenter: {x: 0, y: 0, z: 0}
   enemyPrefabs:
   - {fileID: 6216869016805277748, guid: cd86499381806124ca64b6babf5c0ee2, type: 3}
   spawnScales:
