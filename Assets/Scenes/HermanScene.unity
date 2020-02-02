@@ -477,6 +477,7 @@ MonoBehaviour:
   activatingPlayer: {fileID: 0}
   minMashLength: 1
   maxMashLength: 10
+  mashPrompt: {fileID: 0}
 --- !u!1 &764828879
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +657,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &950389880
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3987987676467803019, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_Name
+      value: BlacksmithArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6fdad611e8254947af57ea84865ff25, type: 3}
 --- !u!1 &1049065275
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,7 +742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1049065276
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -942,6 +1012,8 @@ MonoBehaviour:
   activatingPlayer: {fileID: 0}
   minSequenceLength: 2
   maxSequenceLength: 5
+  blacksmithLeft: {fileID: 0}
+  spaceBetweenButtonInputs: 0
 --- !u!1 &1630470878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,7 +1096,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1630470881
 MonoBehaviour:
@@ -1195,6 +1267,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1801272777
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3987987676467803019, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_Name
+      value: BlacksmithArea (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987987676467803125, guid: e6fdad611e8254947af57ea84865ff25,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6fdad611e8254947af57ea84865ff25, type: 3}
 --- !u!1 &1803539094
 GameObject:
   m_ObjectHideFlags: 0
