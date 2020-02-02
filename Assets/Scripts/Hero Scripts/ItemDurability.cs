@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpiderHops : MonoBehaviour
+public class ItemDurability : MonoBehaviour
 {
+    public int maxSwordDurability, maxShieldDurability;
+
+
     // Start is called before the first frame update
     void Start()
     {
