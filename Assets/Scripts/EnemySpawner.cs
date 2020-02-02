@@ -87,6 +87,9 @@ public class EnemySpawner : MonoBehaviour
 
     private float IntensityScaled(float beta)
     {
+        // Intensity has two parameters:
+        //  intensityMidgame: the point in the round (in seconds) at which sigmoid is 0.5
+        //  intensityScale:   flattening out the sigmoid
         return beta / (1.0f + Mathf.Exp(intensityScale * (intensity - intensityMidgame)));
     }
 
@@ -101,12 +104,20 @@ public class EnemySpawner : MonoBehaviour
         float[] sampleSpace = new float[spawnAreas.Length + 1];
         float selectedPoint;
         int i;
+
+        // Calculate, based on the lengths of every Line in spawnAreas, which
+        // area (sampled uniformly) the new enemy should spawn in
         sampleSpace[0] = 0.0f;
         for (i = 0; i < spawnAreas.Length; i++)
             sampleSpace[i + 1] = sampleSpace[i] + (spawnAreas[i].b - spawnAreas[i].a);
         selectedPoint = (float)rng.NextDouble() * sampleSpace[i];
         for (i = 0; sampleSpace[i + 1] > selectedPoint; i++);
+
+        // selectedPoint now refers to the distance from the beginning of the
+        // Line at which the spawn should happen
         selectedPoint -= sampleSpace[i];
+
+        // Return the spawn location
         switch (spawnAreas[i].dimension)
         {
             case Dimension.X:  // x-extended line (horizontal)
