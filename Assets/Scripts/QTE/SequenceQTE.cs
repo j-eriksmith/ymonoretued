@@ -56,6 +56,7 @@ public class SequenceQTE : BaseQTE
             {
                 activatingPlayer.GetComponent<BlacksmithController>().qteSucceed();
                 Debug.Log("Finished QTE!");
+                qteAudioSource.PlayOneShot(eventWinSound);
                 Destroy(grandPromptHolder);
             }
             else 
@@ -63,6 +64,7 @@ public class SequenceQTE : BaseQTE
                 // Hide the front of the sequence    
                 promptRenderers[inputsCompleted].enabled = false;
                 inputsCompleted++;
+                qteAudioSource.PlayOneShot(eventFailSound); // ANVIL HIT SOUND
             }
         }
         // No else case for now ... gotta finish this game

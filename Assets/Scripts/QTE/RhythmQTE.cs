@@ -117,6 +117,7 @@ public class RhythmQTE : BaseQTE
                     activatingPlayer.GetComponent<BlacksmithController>().qteSucceed();
                 }
                 Debug.Log("Finished QTE!");
+                qteAudioSource.PlayOneShot(eventWinSound);
                 ShutdownQTE();
             }
             else 
@@ -164,6 +165,7 @@ public class RhythmQTE : BaseQTE
         {
             activatingPlayer.GetComponent<BlacksmithController>().qteFail();
         }
+        qteAudioSource.PlayOneShot(eventFailSound);
         ShutdownQTE();
     }
 
