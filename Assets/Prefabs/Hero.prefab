@@ -141,8 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815112b7365b28b4f80c294cdc4f7638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSwordDurability: 200
-  maxShieldDurability: 100
+  damagePerSwing: 2
+  damagePerHit: 1
+  damagePerBlock: 1
+  maxSwordDurability: 500
+  maxShieldDurability: 80
 --- !u!114 &2562374156143782277
 MonoBehaviour:
   m_ObjectHideFlags: 0
