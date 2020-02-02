@@ -35,6 +35,7 @@ public class HeroController : MonoBehaviour
 
     void Update()
     {
+        rb.velocity = Vector2.zero;
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
@@ -42,16 +43,14 @@ public class HeroController : MonoBehaviour
         {
             hasInputThisFrame = true;
             moving = true;
-            float stepSize = horizontal * speed * Time.deltaTime;
-            rb.position += new Vector2(stepSize, 0);
+            rb.velocity += new Vector2(horizontal * speed, 0);
         }
 
         if (Mathf.Abs(vertical) > deadzone)
         {
             hasInputThisFrame = true;
             moving = true;
-            float stepSize = vertical * speed * Time.deltaTime;
-            rb.position += new Vector2(0, stepSize);
+            rb.velocity += new Vector2(0, vertical * speed);
         }
 
         if (!hasInputThisFrame) moving = false;
@@ -69,7 +68,13 @@ public class HeroController : MonoBehaviour
             animator.speed = walkAnimBaseSpeed;
         }
 
-        Pullback();
+        if (rb.velocity.magnitude > 0)
+        {
+            Vector2 ball = new Vector2(-rb.velocity.y, rb.velocity.x);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(0, 0, 1f), ball), 0.1f);
+        }
+
+        // Pullback();
     }
 
     protected virtual void Pullback()

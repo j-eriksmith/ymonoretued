@@ -9,6 +9,7 @@ public abstract class Enmity : MonoBehaviour
 
     public float cooldownTime;
     public float range;
+    public float moveSpeed;
     public int maxHealth;
 
     protected float cooldown;
