@@ -10,37 +10,65 @@ public class HeroController : MonoBehaviour
 
     private int curHealth;
 
+    public float walkAnimBaseSpeed;
+    public float walkAnimHighSpeed;
+    public float walkAnimRampTime;
+
     private Rigidbody2D rb;
+    private Animator animator;
     private float horizontal;
     private float vertical;
+    private float curRampTime;
+
+    private bool moving, hasInputThisFrame;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        curRampTime = 0f;
         curHealth = maxHealth;
+        moving = false;
+        hasInputThisFrame = false;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
         if (Mathf.Abs(horizontal) > deadzone)
         {
-            float stepSize = horizontal * speed * Time.fixedDeltaTime;
+            hasInputThisFrame = true;
+            moving = true;
+            float stepSize = horizontal * speed * Time.deltaTime;
             rb.position += new Vector2(stepSize, 0);
         }
 
         if (Mathf.Abs(vertical) > deadzone)
         {
-            float stepSize = vertical * speed * Time.fixedDeltaTime;
+            hasInputThisFrame = true;
+            moving = true;
+            float stepSize = vertical * speed * Time.deltaTime;
             rb.position += new Vector2(0, stepSize);
         }
-    }
 
-    void Update()
-    {
+        if (!hasInputThisFrame) moving = false;
+        hasInputThisFrame = false;
+
+        if (moving)
+        {
+            curRampTime += Time.deltaTime;
+            if (curRampTime > walkAnimRampTime) curRampTime = walkAnimRampTime;
+            animator.speed = Mathf.Lerp(walkAnimBaseSpeed, walkAnimHighSpeed, curRampTime / walkAnimRampTime);
+        }
+        else
+        {
+            curRampTime = 0f;
+            animator.speed = walkAnimBaseSpeed;
+        }
+
         Pullback();
     }
 
