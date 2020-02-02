@@ -30,10 +30,10 @@ public abstract class Enmity : MonoBehaviour
         cooldown = cooldownTime;
         blockMovement = false;
 
-        circleCollide.GetComponent<CircleCollider2D>();
 
         splat = GetComponentInChildren<VisualEffect>();
         splat.Stop();
+        circleCollide = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
