@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 648328827}
   - component: {fileID: 648328829}
   - component: {fileID: 648328828}
+  - component: {fileID: 648328830}
   m_Layer: 0
   m_Name: Station 1
   m_TagString: Untagged
@@ -413,6 +414,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 141388683}
+  - {fileID: 1803539095}
   m_Father: {fileID: 1049065277}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -454,6 +456,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &648328830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648328826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e3dc981113f224a9d598090623eeec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSprites:
+  - {fileID: -6175942871530182439, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
+  - {fileID: 4328293651333327672, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
+  - {fileID: -6359266562889517256, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
+  - {fileID: 4995109362737295961, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
+  blacksmithCenter: {fileID: 1803539095}
+  activatingPlayer: {fileID: 0}
+  minMashLength: 1
+  maxMashLength: 10
 --- !u!1 &764828879
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +860,7 @@ GameObject:
   - component: {fileID: 1357402044}
   - component: {fileID: 1357402045}
   - component: {fileID: 1357402046}
+  - component: {fileID: 1357402047}
   m_Layer: 0
   m_Name: Station 0
   m_TagString: Untagged
@@ -897,6 +921,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af6e612dcc14084eb91f83d892c7352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1357402047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357402043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60fbba1789b8ca41ad54880de05b0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSprites:
+  - {fileID: -6175942871530182439, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
+  - {fileID: 4328293651333327672, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
+  - {fileID: -6359266562889517256, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
+  - {fileID: 4995109362737295961, guid: 4752265178ec7c84d970c4151f5e6148, type: 3}
+  blacksmithCenter: {fileID: 0}
+  activatingPlayer: {fileID: 0}
+  minSequenceLength: 2
+  maxSequenceLength: 5
 --- !u!1 &1630470878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,3 +1195,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1803539094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1803539095}
+  m_Layer: 0
+  m_Name: Blacksmith Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1803539095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803539094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 648328827}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
