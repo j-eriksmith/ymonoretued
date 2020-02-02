@@ -17,10 +17,20 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject restartButton;
     public GameObject endMenu;
 
+
+    public Text swordDur;
+    public Text shieldDur;
+
     // Start is called before the first frame update
     void Start()
     {
         CloseMenus();
+    }
+
+    void Update()
+    {
+        // swordDur.text = 
+        // shieldDur.text = 
     }
 
 
@@ -71,5 +81,7 @@ public class PauseMenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(restartButton);
         // time stuff here?
     }
+
+
 
 }

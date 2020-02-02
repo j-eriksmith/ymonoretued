@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AttackHitbox : MonoBehaviour
 {
+    public ItemDurability ds;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,14 @@ public class AttackHitbox : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<Enmity>().HitByPlayer();
+            ds.damageSword(ds.damagePerHit);
+        }
     }
 }
