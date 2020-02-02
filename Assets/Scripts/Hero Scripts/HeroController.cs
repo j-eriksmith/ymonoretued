@@ -5,10 +5,10 @@ using UnityEngine;
 public class HeroController : MonoBehaviour
 {
     public float deadzone = 0.1f;
-    public float speed = 100;
+    public float speed = 5;
     public int maxHealth; // May want to use an even number to support half-hearts
 
-    private int curHealth;
+    private int health;
 
     public float walkAnimBaseSpeed;
     public float walkAnimHighSpeed;
@@ -19,6 +19,7 @@ public class HeroController : MonoBehaviour
     private float horizontal;
     private float vertical;
     private float curRampTime;
+    private bool healthImmune; // Immune when blocking or just after getting hit
 
     private bool moving, hasInputThisFrame;
 
@@ -28,9 +29,10 @@ public class HeroController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         curRampTime = 0f;
-        curHealth = maxHealth;
+        health = maxHealth;
         moving = false;
         hasInputThisFrame = false;
+        healthImmune = false;
     }
 
     void Update()
@@ -89,9 +91,14 @@ public class HeroController : MonoBehaviour
         transform.position = p;
     }
 
-    public void damagePlayer(int dmg)
+    public void DamagePlayer(int dmg)
     {
-        curHealth -= dmg;
-        // if (curHealth <= 0) ; // die
+        health -= dmg;
+        if (health <= 0) Die();
+    }
+
+    private void Die()
+    {
+
     }
 }

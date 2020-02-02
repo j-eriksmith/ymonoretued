@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemDurability : MonoBehaviour
 {
+    public int damagePerSwing, damagePerHit, damagePerBlock;
+
     public int maxSwordDurability, maxShieldDurability;
 
     private int curSwordDurability, curShieldDurability;
@@ -38,11 +40,13 @@ public class ItemDurability : MonoBehaviour
     public void damageSword(int dmg)
     {
         curSwordDurability -= dmg;
+        Debug.Log(curSwordDurability + " sword");
     }
 
     public void damageShield(int dmg)
     {
         curShieldDurability -= dmg;
+        Debug.Log(curSwordDurability + " shield");
     }
 
     public void repairSword(int amt)
