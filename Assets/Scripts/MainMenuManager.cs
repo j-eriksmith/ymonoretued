@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class MainMenuManager : MonoBehaviour
 {
-    const string MAIN_GAME_SCENE = "JLScene";
+    const string MAIN_GAME_SCENE = "MasterScene";
     public GameObject backToMenuButton;
     public GameObject startButton;
     public GameObject mainMenu;
@@ -16,8 +16,7 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
-        mainMenu.SetActive(true);
-        HowToPlayMenu.SetActive(false);
+        BackToMenu();
     }
 
     public void StartGame()
