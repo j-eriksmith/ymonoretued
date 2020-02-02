@@ -10,38 +10,71 @@ public class HeroController : MonoBehaviour
 
     private int curHealth;
 
+    public float walkAnimBaseSpeed;
+    public float walkAnimHighSpeed;
+    public float walkAnimRampTime;
+
     private Rigidbody2D rb;
+    private Animator animator;
     private float horizontal;
     private float vertical;
+    private float curRampTime;
+
+    private bool moving, hasInputThisFrame;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        curRampTime = 0f;
         curHealth = maxHealth;
+        moving = false;
+        hasInputThisFrame = false;
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        rb.velocity = Vector2.zero;
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
         if (Mathf.Abs(horizontal) > deadzone)
         {
-            float stepSize = horizontal * speed * Time.fixedDeltaTime;
-            rb.position += new Vector2(stepSize, 0);
+            hasInputThisFrame = true;
+            moving = true;
+            rb.velocity += new Vector2(horizontal * speed, 0);
         }
 
         if (Mathf.Abs(vertical) > deadzone)
         {
-            float stepSize = vertical * speed * Time.fixedDeltaTime;
-            rb.position += new Vector2(0, stepSize);
+            hasInputThisFrame = true;
+            moving = true;
+            rb.velocity += new Vector2(0, vertical * speed);
         }
-    }
 
-    void Update()
-    {
-        Pullback();
+        if (!hasInputThisFrame) moving = false;
+        hasInputThisFrame = false;
+
+        if (moving)
+        {
+            curRampTime += Time.deltaTime;
+            if (curRampTime > walkAnimRampTime) curRampTime = walkAnimRampTime;
+            animator.speed = Mathf.Lerp(walkAnimBaseSpeed, walkAnimHighSpeed, curRampTime / walkAnimRampTime);
+        }
+        else
+        {
+            curRampTime = 0f;
+            animator.speed = walkAnimBaseSpeed;
+        }
+
+        if (rb.velocity.magnitude > 0)
+        {
+            Vector2 ball = new Vector2(-rb.velocity.y, rb.velocity.x);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(0, 0, 1f), ball), 0.1f);
+        }
+
+        // Pullback();
     }
 
     protected virtual void Pullback()
