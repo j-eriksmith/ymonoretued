@@ -258,6 +258,8 @@ MonoBehaviour:
   range: 7
   moveSpeed: 2
   maxHealth: 1
+  projectile: {fileID: 3158002819918736560, guid: 997f0ec3ea74aed4489da09381b061d0,
+    type: 3}
 --- !u!58 &4090144497574688036
 CircleCollider2D:
   m_ObjectHideFlags: 0
