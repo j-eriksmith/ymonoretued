@@ -13,7 +13,7 @@ public abstract class Enmity : MonoBehaviour
     protected float cooldown;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         hero = GameObject.FindWithTag("Hero");

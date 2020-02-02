@@ -9,6 +9,7 @@ public class TestSpiderCreate : MonoBehaviour
     void Start()
     {
         Instantiate(spider, new Vector2(3f, 3f), Quaternion.identity);
+        Vector3 help;
     }
 
     // Update is called once per frame
