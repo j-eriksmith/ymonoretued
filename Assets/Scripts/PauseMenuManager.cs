@@ -13,8 +13,9 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject howToPlayMenu;
     public GameObject resumeButton;
     public GameObject backButton;
-
     public GameObject masterPauseGameObject;
+    public GameObject restartButton;
+    public GameObject endMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class PauseMenuManager : MonoBehaviour
         masterPauseGameObject.SetActive(false);
         mainPauseMenu.SetActive(false);
         howToPlayMenu.SetActive(false);
+        endMenu.SetActive(false);
     }
 
     public void ResumeGame()
@@ -56,6 +58,18 @@ public class PauseMenuManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(MAIN_MENU_SCENE);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void EndGame()
+    {
+        endMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(restartButton);
+        // time stuff here?
     }
 
 }

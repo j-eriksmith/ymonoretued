@@ -9,8 +9,11 @@ public abstract class Enmity : MonoBehaviour
 
     public float cooldownTime;
     public float range;
+    public float moveSpeed;
+    public int maxHealth;
 
     protected float cooldown;
+    protected int health;
 
     // Start is called before the first frame update
     protected void Start()

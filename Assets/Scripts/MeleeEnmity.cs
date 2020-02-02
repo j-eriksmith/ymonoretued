@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MeleeEnmity : Enmity
 {
+    public float attackMoveSpeed;
     private Animator animator;
     private bool attacking;
 
@@ -17,6 +18,7 @@ public class MeleeEnmity : Enmity
     {
         if (attacking) return;
         Vector2 delta = (Vector2)(hero.transform.position - transform.position);
+        delta *= moveSpeed / delta.magnitude;
         if (!InRange())
             rb.velocity = delta;
         else
@@ -36,10 +38,11 @@ public class MeleeEnmity : Enmity
     IEnumerator spiderHop()
     {
         animator.Play("spiderHop");
-        yield return new WaitForSeconds(1.083f);
+        yield return new WaitForSeconds(1.19f);
         Vector2 delta = (Vector2)(hero.transform.position - transform.position);
-        rb.velocity = delta * 10;
-        yield return new WaitForSeconds(0.41f);
+        delta *= attackMoveSpeed / delta.magnitude;
+        rb.velocity = delta;
+        yield return new WaitForSeconds(0.45f);
         rb.velocity = Vector2.zero;
         attacking = false;
     }
