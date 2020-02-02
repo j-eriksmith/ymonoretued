@@ -41,6 +41,11 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawnAreas = new Line[1];
+        spawnAreas[0].dimension = Dimension.X;
+        spawnAreas[0].point = 3.0f;
+        spawnAreas[0].a = -3.0f;
+        spawnAreas[0].b = 3.0f;  // REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
         Debug.Assert(enemyPrefabs.Length == spawnScales.Length);
         rng = new System.Random();
         intensity = 0;
@@ -78,8 +83,8 @@ public class EnemySpawner : MonoBehaviour
         {
             if (timesSince[i] < nextTimes[i])
                 continue;
-            Debug.Log("Spawning enemy, intensity level = " + IntensityScaled(1.0f).ToString());
             p = RandomPosition();
+            Debug.Log("Spawning enemy at " + p.ToString() + ", intensity level = " + IntensityScaled(1.0f).ToString());
             Instantiate(enemyPrefabs[i], p, RandomOrientation(p));
             ScheduleNextEnemy(i);
         }
@@ -111,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
         for (i = 0; i < spawnAreas.Length; i++)
             sampleSpace[i + 1] = sampleSpace[i] + (spawnAreas[i].b - spawnAreas[i].a);
         selectedPoint = (float)rng.NextDouble() * sampleSpace[i];
-        for (i = 0; sampleSpace[i + 1] > selectedPoint; i++);
+        for (i = 0; sampleSpace[i + 1] <= selectedPoint; i++)
 
         // selectedPoint now refers to the distance from the beginning of the
         // Line at which the spawn should happen
