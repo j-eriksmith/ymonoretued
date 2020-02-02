@@ -97,4 +97,8 @@ public class BlacksmithController : MonoBehaviour{
     public void qteSucceed(){
         state = State.CARRYING;
     }
+
+    public void qteFail() {
+        state = State.CARRYING;
+    }
 }
