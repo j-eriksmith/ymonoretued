@@ -131,6 +131,7 @@ MonoBehaviour:
   walkAnimBaseSpeed: 1.7
   walkAnimHighSpeed: 6.3
   walkAnimRampTime: 0.4
+  dropOffZone: {fileID: 0}
   hasSword: 0
   hasShield: 0
   invulDuration: 1.5
@@ -150,7 +151,7 @@ MonoBehaviour:
   damagePerHit: 1
   damagePerBlock: 1
   maxSwordDurability: 100
-  maxShieldDurability: 20
+  maxShieldDurability: 80
 --- !u!114 &2562374156143782277
 MonoBehaviour:
   m_ObjectHideFlags: 0
