@@ -14,6 +14,9 @@ public class HeroController : MonoBehaviour
     public float walkAnimHighSpeed;
     public float walkAnimRampTime;
 
+    public GameObject dropOffZone;
+    private DropoffZoneController dropoffZoneController;
+
     private Rigidbody2D rb;
     private Animator animator;
     private float horizontal;
@@ -42,6 +45,7 @@ public class HeroController : MonoBehaviour
         hasSword = true;
         hasShield = true;
         hitbox = GetComponent<Transform>().Find("Hitbox").GetComponent<CircleCollider2D>();
+        dropoffZoneController = dropOffZone.GetComponent<DropoffZoneController>();
     }
 
     void Update()
@@ -144,6 +148,7 @@ public class HeroController : MonoBehaviour
         hasSword = false;
         if (hasShield) animator.Play(GetAnimName("Shield"));
         else animator.Play(GetAnimName(""));
+        dropoffZoneController.Dropoff(gameObject.GetComponent<ItemDurability>().getSwordDurability());
     }
 
     public void pickUpSword()
@@ -151,6 +156,8 @@ public class HeroController : MonoBehaviour
         hasSword = true;
         if (hasShield) animator.Play(GetAnimName("Swsh"));
         else animator.Play(GetAnimName("Sword"));
+        gameObject.GetComponent<ItemDurability>().setSwordDurability(dropoffZoneController.);
+        dropoffZoneController.Pickup();
     }
 
     public void dropOffShield()

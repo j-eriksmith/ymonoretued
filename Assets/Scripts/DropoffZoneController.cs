@@ -15,10 +15,13 @@ public class DropoffZoneController : MonoBehaviour{
     public GameObject[] qteObjects;
     [HideInInspector]
     public Queue<GameObject> qteQueue = new Queue<GameObject>();
+    [HideInInspector]
+    public int durability;
 
     void Start(){
         state = State.HOLDING_ITEM;
         qteQueue.Enqueue(qteObjects[0]);
+        durability = 0;
     }
 
     public void Dropoff(int durability){
@@ -29,6 +32,8 @@ public class DropoffZoneController : MonoBehaviour{
             itemInstance.transform.localScale = new Vector3(3, 3, 1);
             Vector3 pos = itemInstance.transform.position;
             itemInstance.transform.position = new Vector3(pos.x, pos.y, -1);
+
+            this.durability = durability;
 
             if(durability >= 0 && durability < 20){
                 fillQueue(4);
@@ -52,6 +57,7 @@ public class DropoffZoneController : MonoBehaviour{
         if(state == State.HOLDING_ITEM){
             state = State.NOT_HOLDING_ITEM;
             Destroy(itemInstance);
+            durability = 0;
         }
         else{
             Debug.Log("No item to pick up!");
