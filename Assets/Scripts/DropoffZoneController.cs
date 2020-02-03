@@ -30,16 +30,16 @@ public class DropoffZoneController : MonoBehaviour{
             Vector3 pos = itemInstance.transform.position;
             itemInstance.transform.position = new Vector3(pos.x, pos.y, -1);
 
-            if(durability >= 0 || durability < 20){
+            if(durability >= 0 && durability < 20){
                 fillQueue(4);
             }
-            else if(durability >= 20 || durability < 50){
+            else if(durability >= 20 && durability < 50){
                 fillQueue(3);
             }
-            else if(durability >= 50 || durability < 80){
+            else if(durability >= 50 && durability < 80){
                 fillQueue(2);
             }
-            else if(durability >= 80 || durability < 100){
+            else if(durability >= 80 && durability < 100){
                 fillQueue(1);
             }
         }

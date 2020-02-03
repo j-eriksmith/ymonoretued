@@ -70,7 +70,7 @@ public class BlacksmithController : MonoBehaviour{
                 if(Input.GetButtonDown(blacksmithString + " A")){
                     if(nearbyStation.tag == "Dropoff"){
                         Debug.Log("Dropping off");
-                        nearbyStation.GetComponent<DropoffZoneController>().Dropoff(100);
+                        nearbyStation.GetComponent<DropoffZoneController>().Dropoff(99);
                         state = State.NOT_CARRYING;
                     }
                     else{

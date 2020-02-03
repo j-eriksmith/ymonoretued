@@ -583,6 +583,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.3}
   m_EdgeRadius: 0
+--- !u!1 &795423022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 707984747695643670, guid: e6fdad611e8254947af57ea84865ff25,
+    type: 3}
+  m_PrefabInstance: {fileID: 1801272777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &847019731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 707984747695643670, guid: e6fdad611e8254947af57ea84865ff25,
+    type: 3}
+  m_PrefabInstance: {fileID: 950389880}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &855075009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1167,7 @@ MonoBehaviour:
   deadzone: 0.1
   speed: 3
   blacksmithString: Blacksmith1
+  dropoffZone: {fileID: 847019731}
 --- !u!50 &1630470882
 Rigidbody2D:
   serializedVersion: 4
@@ -1491,6 +1504,7 @@ MonoBehaviour:
   deadzone: 0.1
   speed: 3
   blacksmithString: Blacksmith2
+  dropoffZone: {fileID: 795423022}
 --- !u!212 &1877341307
 SpriteRenderer:
   m_ObjectHideFlags: 0
