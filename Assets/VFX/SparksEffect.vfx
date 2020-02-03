@@ -134,7 +134,7 @@ VisualEffectResource:
       PARTICLE_PER_STRIP_COUNT);\r\n\t\tInitStripAttributes(particleIndex, attributes,
       stripData);\r\n\t\t// TODO Change seed to be sure we're deterministic on random
       with strip\r\n#endif\r\n        \r\n        {\n            SetAttribute_F0142CB9(
-      /*inout */attributes.lifetime, (float)0.25);\n        }\n        {\n           
+      /*inout */attributes.lifetime, (float)0.5);\n        }\n        {\n           
       VelocityRandomize_18D( /*inout */attributes.velocity,  /*inout */attributes.direction, 
       /*inout */attributes.seed, (float)0.75, (float)1);\n        }\n        \n\r\n\t\t\r\n#if
       VFX_USE_ALIVE_CURRENT\r\n        if (attributes.alive)\r\n#endif       \r\n       
@@ -394,7 +394,7 @@ VisualEffectResource:
       /*inout */attributes.axisX,  /*inout */attributes.axisY,  /*inout */attributes.axisZ);\n\t\t\t\tAttributeFromCurve_48A86161(
       /*inout */attributes.color,  /*inout */attributes.alpha, attributes.age, attributes.lifetime,
       Color_b);\n\t\t\t\t{\n\t\t\t\t    SetAttribute_3278B545( /*inout */attributes.size, 
-      /*inout */attributes.seed, (float)0.0299999993, (float)0.0700000003);\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t#if
+      /*inout */attributes.seed, (float)0.0500000007, (float)0.100000001);\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t#if
       !HAS_STRIPS\n\t\t\t\tif (!attributes.alive)\n\t\t\t\t\treturn o;\n\t\t\t#endif\n\t\t\t\t\n\t\t\t#if
       VFX_PRIMITIVE_QUAD\n\t\t\t\n\t\t\t#if HAS_STRIPS\n\t\t\t#if VFX_STRIPS_UV_STRECHED\n\t\t\t\to.VFX_VARYING_UV.x
       = (float)(currentIndex) / (stripData.nextIndex - 1);\n\t\t\t#elif VFX_STRIPS_UV_PER_SEGMENT\n\t\t\t\to.VFX_VARYING_UV.x
@@ -1130,13 +1130,13 @@ VisualEffectResource:
       m_Float:
         m_Array:
         - m_ExpressionIndex: 6
-          m_Value: 0.1
+          m_Value: 0.25
         - m_ExpressionIndex: 7
           m_Value: 0.2
         - m_ExpressionIndex: 9
-          m_Value: 0.07
+          m_Value: 0.1
         - m_ExpressionIndex: 10
-          m_Value: 0.03
+          m_Value: 0.05
         - m_ExpressionIndex: 14
           m_Value: 25
         - m_ExpressionIndex: 15
@@ -1144,7 +1144,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 16
           m_Value: 0.75
         - m_ExpressionIndex: 17
-          m_Value: 0.25
+          m_Value: 0.5
       m_Vector2f:
         m_Array:
         - m_ExpressionIndex: 4
@@ -1220,7 +1220,7 @@ VisualEffectResource:
             ctime6: 0
             ctime7: 0
             atime0: 0
-            atime1: 28720
+            atime1: 43754
             atime2: 60909
             atime3: 0
             atime4: 0
@@ -2263,7 +2263,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.335078477859497,"g":0.46073296666145327,"b":0.0,"a":1.0},"time":0.02058442123234272},{"color":{"r":1.8117283582687379,"g":0.711411714553833,"b":0.0,"a":1.0},"time":0.3000076413154602},{"color":{"r":2.0,"g":0.21960784494876862,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.501960813999176,"time":0.0},{"alpha":0.3764705955982208,"time":0.43823909759521487},{"alpha":0.125490203499794,"time":0.929411768913269}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.335078477859497,"g":0.46073296666145327,"b":0.0,"a":1.0},"time":0.02058442123234272},{"color":{"r":1.8117283582687379,"g":0.711411714553833,"b":0.0,"a":1.0},"time":0.3000076413154602},{"color":{"r":2.0,"g":0.21960784494876862,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.501960813999176,"time":0.0},{"alpha":0.3764705955982208,"time":0.6676432490348816},{"alpha":0.125490203499794,"time":0.929411768913269}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: Color
@@ -2512,7 +2512,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.03
+      m_SerializableObject: 0.05
     m_Space: 2147483647
   m_Property:
     name: A
@@ -2552,7 +2552,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.07
+      m_SerializableObject: 0.1
     m_Space: 2147483647
   m_Property:
     name: B
@@ -3552,7 +3552,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.25
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Lifetime

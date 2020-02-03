@@ -14,6 +14,7 @@ public class MeleeEnmity : Enmity
         attacking = false;
         animator = GetComponent<Animator>();
     }
+
     protected override void Move()
     {
         if (attacking) return;

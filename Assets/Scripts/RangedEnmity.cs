@@ -4,18 +4,10 @@ using UnityEngine;
 
 public class RangedEnmity : Enmity
 {
-    private Animator animator;
-    private bool attacking;
+    public GameObject projectile;
 
-    new void Start()
-    {
-        base.Start();
-        attacking = false;
-        animator = GetComponent<Animator>();
-    }
     protected override void Move()
     {
-        if (attacking) return;
         Vector2 delta = (Vector2)(hero.transform.position - transform.position);
         delta *= moveSpeed / delta.magnitude;
         if (!InRange())
@@ -28,8 +20,8 @@ public class RangedEnmity : Enmity
     {
         if (!InRange() || cooldown > 0.0f)
             return;
-        Debug.Log("Attack!");
-        attacking = true;
+        Debug.Log("Ranged attack!");
+        Instantiate(projectile, transform.position, transform.rotation).SetActive(true);
         cooldown = cooldownTime;
     }
 }

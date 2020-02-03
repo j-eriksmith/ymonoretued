@@ -334,9 +334,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 6216869016805277748, guid: cd86499381806124ca64b6babf5c0ee2, type: 3}
+  - {fileID: 6216869016805277748, guid: b42312b1aa6e9d648882f0a20336328f, type: 3}
   spawnScales:
   - 5
-  intensityMidgame: 180
+  - 15
+  intensityMidgame: 0
   intensityScale: 0.025
 --- !u!4 &726560218
 Transform:
