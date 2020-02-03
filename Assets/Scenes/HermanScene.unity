@@ -770,12 +770,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6703585240373328733, guid: e6fdad611e8254947af57ea84865ff25,
-        type: 3}
-      propertyPath: item
-      value: 
-      objectReference: {fileID: 1455920205264896746, guid: 93dcc41fed38f6541bab90af8044a5ee,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6fdad611e8254947af57ea84865ff25, type: 3}
 --- !u!1 &1049065275
@@ -1167,6 +1161,8 @@ MonoBehaviour:
   deadzone: 0.1
   speed: 3
   blacksmithString: Blacksmith1
+  holdingItemSprite: {fileID: 0}
+  emptyItemSprite: {fileID: 0}
   dropoffZone: {fileID: 847019731}
 --- !u!50 &1630470882
 Rigidbody2D:
@@ -1504,6 +1500,8 @@ MonoBehaviour:
   deadzone: 0.1
   speed: 3
   blacksmithString: Blacksmith2
+  holdingItemSprite: {fileID: 0}
+  emptyItemSprite: {fileID: 0}
   dropoffZone: {fileID: 795423022}
 --- !u!212 &1877341307
 SpriteRenderer:
