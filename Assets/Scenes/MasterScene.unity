@@ -1005,6 +1005,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3464968540916138967, guid: efe04c6256524284fa740a793c4aba85,
+        type: 3}
+      propertyPath: maxShieldDurability
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 7636934097807798022, guid: efe04c6256524284fa740a793c4aba85,
         type: 3}
       propertyPath: m_Name
