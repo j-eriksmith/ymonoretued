@@ -23,6 +23,7 @@ public class HeroController : MonoBehaviour
     private CircleCollider2D hitbox;
 
     private bool moving, hasInputThisFrame;
+    public bool hasSword, hasShield;
 
     public float invulDuration = 1;
     float invulCooldown = 0;
@@ -38,6 +39,8 @@ public class HeroController : MonoBehaviour
         moving = false;
         hasInputThisFrame = false;
         healthImmune = false;
+        hasSword = true;
+        hasShield = true;
         hitbox = GetComponent<Transform>().Find("Hitbox").GetComponent<CircleCollider2D>();
     }
 
@@ -128,6 +131,39 @@ public class HeroController : MonoBehaviour
 
     private void Die()
     {
-        print("You are now dead");
+        print("Omae wa mou shindeiru");
+    }
+
+    private string GetAnimName(string str)
+    {
+        return "HeroIdle" + str;
+    }
+
+    public void dropOffSword()
+    {
+        hasSword = false;
+        if (hasShield) animator.Play(GetAnimName("Shield"));
+        else animator.Play(GetAnimName(""));
+    }
+
+    public void pickUpSword()
+    {
+        hasSword = true;
+        if (hasShield) animator.Play(GetAnimName("Swsh"));
+        else animator.Play(GetAnimName("Sword"));
+    }
+
+    public void dropOffShield()
+    {
+        hasShield = false;
+        if (hasSword) animator.Play(GetAnimName("Sword"));
+        else animator.Play(GetAnimName(""));
+    }
+
+    public void pickUpShield()
+    {
+        hasShield = true;
+        if (hasSword) animator.Play(GetAnimName("Swsh"));
+        else animator.Play(GetAnimName("Shield"));
     }
 }

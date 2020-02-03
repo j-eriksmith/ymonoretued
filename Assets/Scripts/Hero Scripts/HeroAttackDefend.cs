@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class HeroAttackDefend : MonoBehaviour
 {
+    public Animator playerAnimator;
+    public HeroController ct;
+
     private ItemDurability itemDurability;
     private Animator swordAnimator;
     public GameObject sword;
@@ -35,10 +38,22 @@ public class HeroAttackDefend : MonoBehaviour
             defending = true;
             // Durability stuff here
             StartCoroutine(BraceShield());
+            if (ct.hasSword) playerAnimator.Play("HeroGuardSword");
+            else playerAnimator.Play("HeroGuard");
             //print("Blocking");
         }
         else if(Input.GetKeyUp(KeyCode.X) || Input.GetButtonUp("Hero B")){
             defending = false;
+            if (ct.hasSword)
+            {
+                if (ct.hasShield) playerAnimator.Play("HeroIdleSwsh");
+                else playerAnimator.Play("HeroIdleSword");
+            }
+            else
+            {
+                if (ct.hasShield) playerAnimator.Play("HeroIdleShield");
+                else playerAnimator.Play("HeroIdle");
+            }
             StartCoroutine(LowerShield());
         }
 

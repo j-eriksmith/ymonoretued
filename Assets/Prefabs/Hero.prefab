@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815112b7365b28b4f80c294cdc4f7638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSwing: 2
+  damagePerSwing: 1
   damagePerHit: 1
   damagePerBlock: 1
   maxSwordDurability: 500
@@ -161,6 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb5e80b510f84d40bd98ad1baa5ac7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 115723713}
+  ct: {fileID: 1219178271195427563}
   sword: {fileID: 9177559940353180577}
   attackHitbox: {fileID: 9200740792284670034}
   hitboxOpacity: 0.8
