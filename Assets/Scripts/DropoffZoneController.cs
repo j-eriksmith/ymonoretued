@@ -19,9 +19,10 @@ public class DropoffZoneController : MonoBehaviour{
     public int durability;
 
     void Start(){
-        state = State.HOLDING_ITEM;
-        qteQueue.Enqueue(qteObjects[0]);
+        state = State.NOT_HOLDING_ITEM;
         durability = 0;
+        // state = State.HOLDING_ITEM;
+        // qteQueue.Enqueue(qteObjects[0]);
     }
 
     public void Dropoff(int durability){

@@ -41,6 +41,10 @@ public class ItemDurability : MonoBehaviour
     {
         curSwordDurability -= dmg;
         Debug.Log(curSwordDurability + " sword");
+        if(curSwordDurability < 0)
+        {
+            curSwordDurability = 0;
+        }
     }
 
     public void damageShield(int dmg)
