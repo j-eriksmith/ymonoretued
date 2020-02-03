@@ -14,6 +14,9 @@ public class BlacksmithController : MonoBehaviour{
 
     public string blacksmithString;
 
+    public GameObject dropoffZone;
+    private DropoffZoneController dropoffZoneController;
+
     private Rigidbody2D rb2D;
     private float horizontal;
     private float vertical;
@@ -26,6 +29,7 @@ public class BlacksmithController : MonoBehaviour{
     // Start is called before the first frame update
     void Start(){
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        dropoffZoneController = dropoffZone.GetComponent<DropoffZoneController>();
         //TODO: change back to State.NOT_CARRYING
         state = State.NOT_CARRYING;
     }
@@ -66,12 +70,20 @@ public class BlacksmithController : MonoBehaviour{
                 if(Input.GetButtonDown(blacksmithString + " A")){
                     if(nearbyStation.tag == "Dropoff"){
                         Debug.Log("Dropping off");
-                        nearbyStation.GetComponent<DropoffZoneController>().Dropoff();
+                        nearbyStation.GetComponent<DropoffZoneController>().Dropoff(100);
                         state = State.NOT_CARRYING;
                     }
                     else{
-                        nearbyStationQTE.Initialize();
-                        state = State.IN_QTE;
+                        GameObject p = dropoffZoneController.qteQueue.Peek();
+                        if(p){
+                            if(p == nearbyStation){
+                                nearbyStationQTE.Initialize();
+                                state = State.IN_QTE;
+                            }
+                            else{
+                                Debug.Log("Not current QTE");
+                            }
+                        }
                     }
                 }
             }
@@ -117,6 +129,7 @@ public class BlacksmithController : MonoBehaviour{
 
     public void qteSucceed(){
         state = State.CARRYING;
+        dropoffZoneController.qteQueue.Dequeue();
     }
 
     public void qteFail() {
