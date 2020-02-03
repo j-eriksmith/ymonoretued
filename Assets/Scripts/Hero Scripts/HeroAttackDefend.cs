@@ -11,6 +11,11 @@ public class HeroAttackDefend : MonoBehaviour
     private SpriteRenderer hbRender;
     public float hitboxOpacity;
     private bool attacking;
+    private bool defending;
+    public GameObject shield;
+    private bool shieldInvul;
+    private float shieldInvulCooldown = 0.0f;
+    public float shieldInvulDuration = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,14 +24,22 @@ public class HeroAttackDefend : MonoBehaviour
         itemDurability = GetComponent<ItemDurability>();
         swordAnimator = sword.GetComponent<Animator>();
         attacking = false;
+        print(shield);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKey(KeyCode.X) || Input.GetButtonDown("Hero B")) && itemDurability.canUseShield() && !attacking)
+        if (!defending && (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Hero B")) && itemDurability.canUseShield() && !attacking)
         {
-            
+            defending = true;
+            // Durability stuff here
+            StartCoroutine(BraceShield());
+            //print("Blocking");
+        }
+        else if(Input.GetKeyUp(KeyCode.X) || Input.GetButtonUp("Hero B")){
+            defending = false;
+            StartCoroutine(LowerShield());
         }
 
         else if ((Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("Hero A")) && itemDurability.canUseSword() && !attacking)
@@ -35,6 +48,31 @@ public class HeroAttackDefend : MonoBehaviour
             itemDurability.damageSword(itemDurability.damagePerSwing);
             StartCoroutine(SwordAttack());
         }
+    }
+
+
+    IEnumerator BraceShield(){
+        shield.SetActive(true);
+        
+        if(!shieldInvul && shield.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemy"))){
+            shieldInvul = true;
+            itemDurability.damageShield(1);
+            shieldInvulCooldown = shieldInvulDuration;
+        }
+
+        if(shieldInvul){
+            if(shieldInvulCooldown <= 0){
+                shieldInvul = false;
+            }
+
+            shieldInvulCooldown -= Time.deltaTime;
+        }
+        yield return null;
+    }
+
+    IEnumerator LowerShield(){
+        shield.SetActive(false);
+        yield return null;
     }
 
     IEnumerator SwordAttack()
