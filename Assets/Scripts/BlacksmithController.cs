@@ -16,6 +16,9 @@ public class BlacksmithController : MonoBehaviour{
     public Sprite holdingItemSprite;
     public Sprite emptyItemSprite;
 
+    public GameObject dropoffZone;
+    private DropoffZoneController dropoffZoneController;
+
     private Rigidbody2D rb2D;
     private SpriteRenderer spriteRenderer;
     private float horizontal;
@@ -30,7 +33,8 @@ public class BlacksmithController : MonoBehaviour{
     void Start(){
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        state = State.CARRYING;
+        dropoffZoneController = dropoffZone.GetComponent<DropoffZoneController>();
+        state = State.NOT_CARRYING;
     }
 
     // Update is called once per frame
@@ -69,13 +73,21 @@ public class BlacksmithController : MonoBehaviour{
                 if(Input.GetButtonDown(blacksmithString + " A")){
                     if(nearbyStation.tag == "Dropoff"){
                         Debug.Log("Dropping off");
-                        nearbyStation.GetComponent<DropoffZoneController>().Dropoff();
                         spriteRenderer.sprite = emptyItemSprite;
+                        nearbyStation.GetComponent<DropoffZoneController>().Dropoff(100);
                         state = State.NOT_CARRYING;
                     }
                     else{
-                        nearbyStationQTE.Initialize();
-                        state = State.IN_QTE;
+                        GameObject p = dropoffZoneController.qteQueue.Peek();
+                        if(p){
+                            if(p == nearbyStation){
+                                nearbyStationQTE.Initialize();
+                                state = State.IN_QTE;
+                            }
+                            else{
+                                Debug.Log("Not current QTE");
+                            }
+                        }
                     }
                 }
             }
@@ -122,6 +134,7 @@ public class BlacksmithController : MonoBehaviour{
 
     public void qteSucceed(){
         state = State.CARRYING;
+        dropoffZoneController.qteQueue.Dequeue();
     }
 
     public void qteFail() {
