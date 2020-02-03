@@ -20,6 +20,8 @@ public abstract class BaseQTE : MonoBehaviour
     protected AudioClip eventFailSound;
     protected AudioSource qteAudioSource;
 
+    public SpriteRenderer helpGoalSpriteRenderer;
+
     public void Start()
     {
         //Initialize();
@@ -49,6 +51,7 @@ public abstract class BaseQTE : MonoBehaviour
     public virtual void Initialize()
     {
         timeOfInitialization = Time.time;
+        helpGoalSpriteRenderer.enabled = false;
         DisplayInitialGraphics();
     }
 
