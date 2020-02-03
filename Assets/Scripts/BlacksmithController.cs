@@ -13,11 +13,14 @@ public class BlacksmithController : MonoBehaviour{
     public float speed = 100;
 
     public string blacksmithString;
+    public Sprite holdingItemSprite;
+    public Sprite emptyItemSprite;
 
     public GameObject dropoffZone;
     private DropoffZoneController dropoffZoneController;
 
     private Rigidbody2D rb2D;
+    private SpriteRenderer spriteRenderer;
     private float horizontal;
     private float vertical;
 
@@ -29,8 +32,8 @@ public class BlacksmithController : MonoBehaviour{
     // Start is called before the first frame update
     void Start(){
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         dropoffZoneController = dropoffZone.GetComponent<DropoffZoneController>();
-        //TODO: change back to State.NOT_CARRYING
         state = State.NOT_CARRYING;
     }
 
@@ -70,6 +73,7 @@ public class BlacksmithController : MonoBehaviour{
                 if(Input.GetButtonDown(blacksmithString + " A")){
                     if(nearbyStation.tag == "Dropoff"){
                         Debug.Log("Dropping off");
+                        spriteRenderer.sprite = emptyItemSprite;
                         nearbyStation.GetComponent<DropoffZoneController>().Dropoff(100);
                         state = State.NOT_CARRYING;
                     }
@@ -92,6 +96,7 @@ public class BlacksmithController : MonoBehaviour{
                     if(nearbyStation.tag == "Dropoff"){
                         Debug.Log("Picking up");
                         nearbyStation.GetComponent<DropoffZoneController>().Pickup();
+                        spriteRenderer.sprite = holdingItemSprite;
                         state = State.CARRYING;
                     }
                 }
