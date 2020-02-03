@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 7994045377403647888}
   - component: {fileID: 4090144497574688036}
   m_Layer: 8
-  m_Name: UnnamedRangedEnemy
+  m_Name: SpitterSpider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 4712005028292018085, guid: 3e63a104bab665d40ae2cbc55c7ace76,
+  m_Sprite: {fileID: -4034528277076123193, guid: b6d5f8b7c36c2b140af1f1ddcf51f127,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -258,6 +258,8 @@ MonoBehaviour:
   range: 7
   moveSpeed: 2
   maxHealth: 1
+  projectile: {fileID: 3158002819918736560, guid: 997f0ec3ea74aed4489da09381b061d0,
+    type: 3}
 --- !u!58 &4090144497574688036
 CircleCollider2D:
   m_ObjectHideFlags: 0

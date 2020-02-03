@@ -16,7 +16,7 @@ public abstract class Enmity : MonoBehaviour
     protected float cooldown;
     protected int health;
 
-    private bool blockMovement; // Also used for enemy I-frames
+    private bool blockMovement = false; // Also used for enemy I-frames
     private VisualEffect splat;
     private CircleCollider2D circleCollide;
     private bool dead = false;
@@ -104,7 +104,7 @@ public abstract class Enmity : MonoBehaviour
         GetComponent<SpriteRenderer>().color = new Vector4(1f, 0f, 0f, 1f);
         splat.gameObject.SetActive(true);
         splat.Play();
-        blockMovementForDuration(5f);
+        StartCoroutine(blockMovementForDuration(5f));
         Destroy(gameObject, 5f);
         yield return new WaitForSeconds(0.5f);
         GetComponent<SpriteRenderer>().enabled = false;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RangedEnmity : Enmity
 {
+    public GameObject projectile;
+
     protected override void Move()
     {
         Vector2 delta = (Vector2)(hero.transform.position - transform.position);
@@ -19,6 +21,7 @@ public class RangedEnmity : Enmity
         if (!InRange() || cooldown > 0.0f)
             return;
         Debug.Log("Ranged attack!");
+        Instantiate(projectile, transform.position, transform.rotation).SetActive(true);
         cooldown = cooldownTime;
     }
 }
