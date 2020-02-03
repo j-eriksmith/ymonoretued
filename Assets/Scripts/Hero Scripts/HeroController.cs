@@ -32,6 +32,8 @@ public class HeroController : MonoBehaviour
     float invulCooldown = 0;
     bool invulnerable = false;
 
+    private bool inDropoff = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -111,6 +113,15 @@ public class HeroController : MonoBehaviour
 
             invulCooldown -= Time.deltaTime;
         }
+
+        if(inDropoff && Input.GetButtonDown("Hero X")){
+            if(hasSword){
+                dropOffSword();
+            }
+            else{
+                pickUpSword();
+            }
+        }
     }
 
     protected virtual void Pullback()
@@ -156,7 +167,7 @@ public class HeroController : MonoBehaviour
         hasSword = true;
         if (hasShield) animator.Play(GetAnimName("Swsh"));
         else animator.Play(GetAnimName("Sword"));
-        gameObject.GetComponent<ItemDurability>().setSwordDurability(dropoffZoneController.);
+        gameObject.GetComponent<ItemDurability>().setSwordDurability(dropoffZoneController.durability);
         dropoffZoneController.Pickup();
     }
 
@@ -173,4 +184,13 @@ public class HeroController : MonoBehaviour
         if (hasSword) animator.Play(GetAnimName("Swsh"));
         else animator.Play(GetAnimName("Shield"));
     }
+
+    public void enterDropoff(){
+        inDropoff = true;
+    }
+
+    public void exitDropoff(){
+        inDropoff = false;
+    }
+}
 }

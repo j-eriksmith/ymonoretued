@@ -14,12 +14,18 @@ public class StationController : MonoBehaviour
                 baseQTE.activatingPlayer = collider.gameObject;
             }
         }
+        else if(collider.gameObject.tag == "Hero"){
+            collider.gameObject.GetComponent<HeroController>().enterDropoff();
+        }
     }
 
     void OnTriggerExit2D(Collider2D collider){
         if(collider.gameObject.tag == "Player"){
             Debug.Log("PLAYER EXIT");
             collider.gameObject.SendMessage("resetNearbyStation");
+        }
+        else if(collider.gameObject.tag == "Hero"){
+            collider.gameObject.GetComponent<HeroController>().exitDropoff();
         }
     }
 }
