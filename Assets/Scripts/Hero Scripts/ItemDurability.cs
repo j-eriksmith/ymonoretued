@@ -49,13 +49,13 @@ public class ItemDurability : MonoBehaviour
         Debug.Log(curSwordDurability + " shield");
     }
 
-    public void repairSword(int amt)
+    public void setSwordDurability(int amt)
     {
-        curSwordDurability += amt;
+        curSwordDurability = amt;
     }
 
-    public void repairShield(int amt)
+    public void setShieldDurability(int amt)
     {
-        curShieldDurability += amt;
+        curShieldDurability = amt;
     }
 }
