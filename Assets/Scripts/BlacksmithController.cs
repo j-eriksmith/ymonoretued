@@ -13,14 +13,14 @@ public class BlacksmithController : MonoBehaviour{
     public float speed = 100;
 
     public string blacksmithString;
-    public Sprite holdingItemSprite;
-    public Sprite emptyItemSprite;
+    public string holdingItemAnimName;
+    public string emptyItemAnimName;
 
     public GameObject dropoffZone;
     private DropoffZoneController dropoffZoneController;
 
     private Rigidbody2D rb2D;
-    private SpriteRenderer spriteRenderer;
+    private Animator blacksmithAnimator;
     private float horizontal;
     private float vertical;
 
@@ -32,7 +32,7 @@ public class BlacksmithController : MonoBehaviour{
     // Start is called before the first frame update
     void Start(){
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        blacksmithAnimator = GetComponent<Animator>();
         dropoffZoneController = dropoffZone.GetComponent<DropoffZoneController>();
         state = State.NOT_CARRYING;
     }
@@ -73,7 +73,7 @@ public class BlacksmithController : MonoBehaviour{
                 if(Input.GetButtonDown(blacksmithString + " A")){
                     if(nearbyStation.tag == "Dropoff"){
                         Debug.Log("Dropping off");
-                        spriteRenderer.sprite = emptyItemSprite;
+                        blacksmithAnimator.Play(emptyItemAnimName);
                         nearbyStation.GetComponent<DropoffZoneController>().Dropoff(100);
                         state = State.NOT_CARRYING;
                     }
@@ -81,6 +81,7 @@ public class BlacksmithController : MonoBehaviour{
                         GameObject p = dropoffZoneController.qteQueue.Peek();
                         if(p){
                             if(p == nearbyStation){
+                                Debug.Log("Found the current QTE!");
                                 nearbyStationQTE.Initialize();
                                 state = State.IN_QTE;
                             }
@@ -96,7 +97,8 @@ public class BlacksmithController : MonoBehaviour{
                     if(nearbyStation.tag == "Dropoff"){
                         Debug.Log("Picking up");
                         nearbyStation.GetComponent<DropoffZoneController>().Pickup();
-                        spriteRenderer.sprite = holdingItemSprite;
+                        dropoffZoneController.qteQueue.Peek().GetComponent<BaseQTE>().helpGoalSpriteRenderer.enabled = true;
+                        blacksmithAnimator.Play(holdingItemAnimName);
                         state = State.CARRYING;
                     }
                 }
@@ -134,10 +136,16 @@ public class BlacksmithController : MonoBehaviour{
 
     public void qteSucceed(){
         state = State.CARRYING;
+        dropoffZoneController.qteQueue.Peek().GetComponent<BaseQTE>().helpGoalSpriteRenderer.enabled = false;
         dropoffZoneController.qteQueue.Dequeue();
+        if (dropoffZoneController.qteQueue.Count > 0)
+        {
+            dropoffZoneController.qteQueue.Peek().GetComponent<BaseQTE>().helpGoalSpriteRenderer.enabled = true;
+        }
     }
 
     public void qteFail() {
         state = State.CARRYING;
+        dropoffZoneController.qteQueue.Peek().GetComponent<BaseQTE>().helpGoalSpriteRenderer.enabled = true;
     }
 }

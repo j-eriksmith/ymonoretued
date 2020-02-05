@@ -8,6 +8,7 @@ public class DropoffZoneController : MonoBehaviour{
         NOT_HOLDING_ITEM
     }
 
+    [SerializeField]
     private State state;
     private GameObject itemInstance;
 
