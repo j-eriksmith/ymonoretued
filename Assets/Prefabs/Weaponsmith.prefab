@@ -166,6 +166,6 @@ MonoBehaviour:
   deadzone: 0.1
   speed: 5
   blacksmithString: Blacksmith1
-  holdingItemSprite: {fileID: 21300000, guid: 5d69a07eae3044c218c1ba28660ebe11, type: 3}
-  emptyItemSprite: {fileID: 21300000, guid: 9d646b18041584f22ad5dd62a6e299c3, type: 3}
+  holdingItemAnimName: WSIdleSword
+  emptyItemAnimName: WSIdle
   dropoffZone: {fileID: 0}

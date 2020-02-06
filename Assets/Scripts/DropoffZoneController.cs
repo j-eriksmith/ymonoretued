@@ -21,6 +21,7 @@ public class DropoffZoneController : MonoBehaviour{
     [SerializeField]
     private DurabilityThreshold[] durabilityThresholds;
 
+    [SerializeField]
     private State state;
     private GameObject itemInstance;
 
