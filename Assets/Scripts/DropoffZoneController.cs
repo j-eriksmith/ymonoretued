@@ -8,6 +8,19 @@ public class DropoffZoneController : MonoBehaviour{
         NOT_HOLDING_ITEM
     }
 
+    //Create a custom struct and apply [Serializable] attribute to it
+    [System.Serializable]
+    private class DurabilityThreshold
+    {
+        public int threshold;
+        public int eventsToGenerate;
+    }
+
+    //Make the private field of our PlayerStats struct visible in the Inspector
+    //by applying [SerializeField] attribute to it
+    [SerializeField]
+    private DurabilityThreshold[] durabilityThresholds;
+
     private State state;
     private GameObject itemInstance;
 
@@ -21,32 +34,27 @@ public class DropoffZoneController : MonoBehaviour{
     void Start(){
         state = State.NOT_HOLDING_ITEM;
         durability = 0;
-        // state = State.HOLDING_ITEM;
-        // qteQueue.Enqueue(qteObjects[0]);
     }
 
     public void Dropoff(int durability){
+        Debug.Log("attempting dropoff");
         if(state == State.NOT_HOLDING_ITEM){
-            Debug.Log("REEEEE");
             state = State.HOLDING_ITEM;
+            // Todo: activate child object instead of instantiating
             itemInstance = Instantiate(item, gameObject.transform);
             itemInstance.transform.localScale = new Vector3(3, 3, 1);
             Vector3 pos = itemInstance.transform.position;
             itemInstance.transform.position = new Vector3(pos.x, pos.y, -1);
+            // Everything up to here
 
             this.durability = durability;
 
-            if(durability >= 0 && durability < 20){
-                fillQueue(4);
-            }
-            else if(durability >= 20 && durability < 50){
-                fillQueue(3);
-            }
-            else if(durability >= 50 && durability < 80){
-                fillQueue(2);
-            }
-            else if(durability >= 80 && durability < 100){
-                fillQueue(1);
+            for (int i = 0; i < durabilityThresholds.Length - 1; ++i)
+            {
+                if (durability < durabilityThresholds[i].threshold && durability >= durabilityThresholds[i+1].threshold)
+                {
+                    FillQueue(durabilityThresholds[i].eventsToGenerate);
+                }
             }
         }
         else{
@@ -65,7 +73,7 @@ public class DropoffZoneController : MonoBehaviour{
         }
     }
 
-    private void fillQueue(int numEvents){
+    private void FillQueue(int numEvents){
         for(int i = 0; i < numEvents; ++i){
             int e = Mathf.FloorToInt(Random.Range(0, 4));
 

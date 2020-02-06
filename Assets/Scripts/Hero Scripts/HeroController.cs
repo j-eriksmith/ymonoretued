@@ -160,6 +160,7 @@ public class HeroController : MonoBehaviour
         if (hasShield) animator.Play(GetAnimName("Shield"));
         else animator.Play(GetAnimName(""));
         dropoffZoneController.Dropoff(gameObject.GetComponent<ItemDurability>().getSwordDurability());
+        gameObject.GetComponent<ItemDurability>().setSwordDurability(0);
     }
 
     public void pickUpSword()
