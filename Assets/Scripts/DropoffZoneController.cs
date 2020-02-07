@@ -26,7 +26,7 @@ public class DropoffZoneController : MonoBehaviour{
     private GameObject itemInstance;
 
     public GameObject item;
-    public GameObject[] qteObjects;
+    public List<GameObject> qteObjects;
     [HideInInspector]
     public Queue<GameObject> qteQueue = new Queue<GameObject>();
     [HideInInspector]
@@ -76,10 +76,19 @@ public class DropoffZoneController : MonoBehaviour{
 
     private void FillQueue(int numEvents){
         for(int i = 0; i < numEvents; ++i){
-            int e = Mathf.FloorToInt(Random.Range(0, 4));
-
-            qteQueue.Enqueue(qteObjects[e]);
-            Debug.Log("Enqeued " + qteObjects[e].name);
+            int eventIndex = -1;
+            if (i > 0)
+            {
+                eventIndex = Mathf.FloorToInt(Random.Range(0, qteObjects.Count - 1));
+            }
+            else
+            {
+                eventIndex = Mathf.FloorToInt(Random.Range(0, qteObjects.Count));
+            }
+            qteQueue.Enqueue(qteObjects[eventIndex]);
+            qteObjects.Add(qteObjects[eventIndex]);
+            qteObjects.RemoveAt(eventIndex);
+            Debug.Log("Enqeued " + qteObjects[eventIndex].name);
         }
     }
 }
